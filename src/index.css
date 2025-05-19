@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../public/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --fontsize-12: 1.2rem;
+    --fontsize-14: 1.4rem;
+    --fontsize-16: 1.6rem;
+    --fontsize-18: 1.8rem;
+    --fontsize-20: 2rem;
+    --fontsize-24: 2.4rem;
+    --fontsize-32: 3.2rem;
+    --fontsize-36: 3.6rem;
+    --fontsize-40: 4rem;
+    --fontsize-72: 7.2rem;
+
+    --backgroundcolor: #F0F0F0;
+    --inputcolor: #D2D2D2;
+    --primarycolor: ##FF7F59;
+    --secondarycolor: #FFC8A6;
+    --textcolor: #333333;
+    --iconcolor: #969696;
+    --reviewcolor: #D2D2D2;
+    --favoritecolor: #DB2719;
+
+    --defaultpagemargin: 32px 54px;
+
+}
