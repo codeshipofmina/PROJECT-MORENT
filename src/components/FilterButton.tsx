@@ -1,14 +1,21 @@
 import "../styles/filter_button.css";
 import filterImg from "../assets/img/filter.png";
+import { useNavigate } from "react-router";
 
 const FilterButton = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/filter");
+    };
     return (
-        <section className="filter_button_container">
-            <article className="filter_button">
-                <img src={filterImg} alt="Filter Icon" />
-                <p className="filter_button_text">Filter</p>
-            </article>
-        </section>
+        <button className="filter_button" onClick={handleClick}>
+            <img src={filterImg} alt="Filter Icon" />
+            Filter
+        </button>
+    
+        
+        
     );
 };
 

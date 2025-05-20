@@ -6,7 +6,9 @@ const Footer = () => {
         <section className="footer">
             <article className="links">
                 <div>
-                    <a href="#start"><h3>MØRENT</h3></a>
+                    <a href="#start">
+                        <h3>MØRENT</h3>
+                    </a>
                     <p>
                         Our vision is to provide convenience and help increase
                         your sales business.
@@ -28,13 +30,19 @@ const Footer = () => {
                 </div>
                 <div className="social">
                     <h4>Socials</h4>
-                    <Link to="https://github.com/OguzGeylaniYilmaz" target="_blank">
+                    <Link
+                        to="https://github.com/OguzGeylaniYilmaz"
+                        target="_blank"
+                    >
                         Oguz
                     </Link>
                     <Link to="https://github.com/MonaEis" target="_blank">
                         Mona
                     </Link>
-                    <Link to="https://github.com/codeshipofmina" target="_blank">
+                    <Link
+                        to="https://github.com/codeshipofmina"
+                        target="_blank"
+                    >
                         Mina
                     </Link>
                     <Link to="https://github.com/ninaraffaela" target="_blank">
@@ -46,8 +54,8 @@ const Footer = () => {
             <article className="copyright">
                 <p>© 2025 Mørent. All rights reserved.</p>
                 <div className="policy">
-                  <p>Privacy & Policy</p>
-                  <p>Terms & Condition</p>
+                    <p>Privacy & Policy</p>
+                    <p>Terms & Condition</p>
                 </div>
             </article>
         </section>
