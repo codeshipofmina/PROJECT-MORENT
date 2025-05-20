@@ -1,0 +1,33 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" fill="#E3E3E3"/>
+<g id="Components">
+<path d="M-2254 -1086C-2254 -1087.1 -2253.1 -1088 -2252 -1088H504C505.105 -1088 506 -1087.1 506 -1086V1212C506 1213.1 505.104 1214 504 1214H-2252C-2253.1 1214 -2254 1213.1 -2254 1212V-1086Z" fill="#D6DDE5"/>
+<path d="M-2252 -1087H504V-1089H-2252V-1087ZM505 -1086V1212H507V-1086H505ZM504 1213H-2252V1215H504V1213ZM-2253 1212V-1086H-2255V1212H-2253ZM-2252 1213C-2252.55 1213 -2253 1212.55 -2253 1212H-2255C-2255 1213.66 -2253.66 1215 -2252 1215V1213ZM505 1212C505 1212.55 504.552 1213 504 1213V1215C505.657 1215 507 1213.66 507 1212H505ZM504 -1087C504.552 -1087 505 -1086.55 505 -1086H507C507 -1087.66 505.657 -1089 504 -1089V-1087ZM-2252 -1089C-2253.66 -1089 -2255 -1087.66 -2255 -1086H-2253C-2253 -1086.55 -2252.55 -1087 -2252 -1087V-1089Z" fill="black" fill-opacity="0.1"/>
+<g id="Profile Menue" filter="url(#filter0_d_1_5)">
+<rect x="-36" y="-75" width="224" height="304" rx="15" fill="white" shape-rendering="crispEdges"/>
+<g id="link">
+<rect width="74" height="24" rx="4" fill="white"/>
+<g id="profile">
+<g id="vuesax/bold/frame">
+<g id="frame">
+<path id="Vector" d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z" fill="#292D32"/>
+<path id="Vector_2" d="M17.08 14.15C14.29 12.29 9.73996 12.29 6.92996 14.15C5.65996 15 4.95996 16.15 4.95996 17.38C4.95996 18.61 5.65996 19.75 6.91996 20.59C8.31996 21.53 10.16 22 12 22C13.84 22 15.68 21.53 17.08 20.59C18.34 19.74 19.04 18.6 19.04 17.36C19.03 16.13 18.34 14.99 17.08 14.15Z" fill="#292D32"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_1_5" x="-56" y="-90" width="264" height="344" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="5"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.388235 0 0 0 0.37 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_5"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_5" result="shape"/>
+</filter>
+</defs>
+</svg>
