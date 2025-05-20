@@ -1,13 +1,25 @@
-import { Link } from "react-router";
-import type { Database } from "../types/supabase";
+import { Link } from "react-router-dom";
 
 interface VehicleCardProps {
-  vehicle: Database["public"]["Tables"]["cars"]["Row"];
+  vehicle: {
+    id: string;
+    brand: string;
+    model: string;
+    vehicle_type_id: string;
+    carimg: string | null;
+    fuel: string;
+    geartype: string;
+    seats: number;
+    priceperday: number;
+  };
 }
+
+// { vehicle }: VehicleCardProps
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   return (
     <div>
+      <h3>Audi</h3>
       <div>
         <h3>
           {vehicle.brand} {vehicle.model}
@@ -19,7 +31,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           <img
             src={vehicle.carimg ?? ""}
             alt={`${vehicle.brand} ${vehicle.model}`}
-          />{" "}
+          />
         </div>
       </div>
 
