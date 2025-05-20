@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { supabase } from "../lib/supabaseClient";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-// import CarCards from "./CarCards";
+import VehicleCard from "./VehicleCard";
 import "../styles/header.css";
 import ProfilImg from "../assets/img/profil.svg";
 import FavouritesImg from "../assets/img/heart.svg";
@@ -53,8 +53,8 @@ export default function Header() {
         {isError && "Leider kaputt."}
         {data && (
           <section className="car-selection">
-            {/* {data.map((car) => (
-          <CarCards 
+            {data.map((car) => (
+          <VehicleCard 
             key={car.id}
             brand={car.brand}
             model={car.model}
@@ -66,7 +66,7 @@ export default function Header() {
             seats={car.seats}
             price={car.priceperday}
           />
-        ))} */}
+        ))}
           </section>
         )}
 
