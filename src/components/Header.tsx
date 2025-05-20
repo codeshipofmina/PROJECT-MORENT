@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { supabase } from "../lib/supabaseClient";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import CarCards from "./CarCards";
+// import CarCards from "./CarCards";
 import "../styles/header.css";
 import ProfilImg from "../assets/img/profil.svg";
 import FavouritesImg from "../assets/img/heart.svg";
@@ -38,7 +38,7 @@ export default function Header() {
     <>
       <header className="header-web">
         <Link to="/">
-          <span className="logo">🚗MøRENT</span>
+          <span className="logo">🚗MØRENT</span>
         </Link>
         <input
           className="searchbar"
@@ -48,11 +48,12 @@ export default function Header() {
             setSearchText(e.target.value);
           }}
         />
-        
+
         {isPending && "Is loading..."}
         {isError && "Leider kaputt."}
-        {data && <section className="car-selection">
-        {/* {data.map((car) => (
+        {data && (
+          <section className="car-selection">
+            {/* {data.map((car) => (
           <CarCards 
             key={car.id}
             brand={car.brand}
@@ -66,8 +67,8 @@ export default function Header() {
             price={car.priceperday}
           />
         ))} */}
-        
-      </section>}
+          </section>
+        )}
 
         <section className="header-icons">
           {!session && (
