@@ -16,6 +16,7 @@ img {
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -32,7 +33,7 @@ html {
 
     --backgroundcolor: #F0F0F0;
     --inputcolor: #D2D2D2;
-    --primarycolor: ##FF7F59;
+    --primarycolor: #FF7F59;
     --secondarycolor: #FFC8A6;
     --textcolor: #333333;
     --iconcolor: #969696;
