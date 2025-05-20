@@ -1,0 +1,19 @@
+.filter_button_container{
+    display: flex;
+}
+
+.filter_button{
+    background-color: var(--primarycolor);
+    padding: 1.4rem 2em;
+    border-radius: 0.4rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_button .filter_button_text{
+    color: white;
+    font-size: var(--fontsize-16);
+    font-weight: 600;
+}
