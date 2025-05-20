@@ -2,6 +2,7 @@
 import CarCards from "../components/VehicleCard.tsx";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../lib/supabaseClient.ts";
+import HighlightProduct from "../components/HighlightProduct.tsx";
 
 // pew pew pew 🔫 🔫 🔫
 
@@ -51,6 +52,7 @@ const HomePage = () => {
   console.log(data);
   return (
     <div>
+      <HighlightProduct/>
       {data?.map((vehicle) => (
         <CarCards vehicle={vehicle} />
       ))}
