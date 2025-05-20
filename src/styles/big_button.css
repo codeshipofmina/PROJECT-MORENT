@@ -1,6 +1,6 @@
-button.filter_button {
+button.big_button {
     background-color: var(--primarycolor);
-    padding: 1.4rem 2em;
+    padding: 01rem 2em;
     border-radius: 0.4rem;
     border: none;
     display: flex;
@@ -13,14 +13,14 @@ button.filter_button {
     transition: all 0.2s ease-in-out;
 }
 
-button.filter_button:hover {
+button.big_button:hover {
     transform: scale(1.05);
 }
 
-button.filter_button:disabled {
+button.big_button:disabled {
     background-color: var(--secondarycolor);
     cursor: not-allowed;
 }
-button.filter_button:disabled:hover {
+button.big_button:disabled:hover {
     transform: none;
 }
