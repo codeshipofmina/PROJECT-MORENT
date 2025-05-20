@@ -3,7 +3,8 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json | undefined }
+  | { [key: s
+ring]: Json | undefined }
   | Json[];
 
 export type Database = {

@@ -11,6 +11,9 @@ import BookingOverviewPage from "./Pages/BookingOverviewPage";
 import ProtectedRoute from "./layouts/protectedLayout";
 import FavoriteCarsPage from "./Pages/FavoriteCarsPage";
 import { AuthContextProvider } from "./contexts/auth-context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const client = new QueryClient();
 
 function App() {
   const router = createBrowserRouter([
@@ -58,10 +61,13 @@ function App() {
       ],
     },
   ]);
+
   return (
-    <AuthContextProvider>
-      <RouterProvider router={router} />
-    </AuthContextProvider>
+    <QueryClientProvider client={client}>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
+    </QueryClientProvider>
   );
 }
 
