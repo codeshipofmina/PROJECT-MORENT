@@ -1,37 +1,39 @@
-.login_page {
+.signup_page {
     /* flex: 1; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    padding: 3.2rem 5vw;
-    background-color: var(--reviewcolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  padding: 3.2rem 5vw;
+  background-color: var(--reviewcolor);
 }
 
-.login_page {
-    outline: 2px dashed rgb(255, 51, 0);
+@media (max-width: 750px) {
+    .signup_page {  
+      height: 100%; 
+  padding: 3.2rem 7vw;  
+}    
 }
-/** Hier noch klären, warum HG nicht auf ganzer Seite!!*/
 
-.login_page .login-form {
-    max-width: 100%;
+
+.signup_page .register-form {
+  width: 40rem;
     background-color: var(--backgroundcolor);
     padding: 2.4rem;
     border-radius: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.login_page .login-form h2 {
-    color: var(--anothercolor);
+.signup_page .register-form h2 {
+  color: var(--anothercolor);
     text-align: center;
     font-size: var(--fontsize-24);
     font-weight: 600;
     margin-bottom: 3.4rem;
 }
 
-
-.login_page .login-form input {
-    padding: 1.1rem;
+.signup_page .register-form input {
+   padding: 1.1rem;
     font-size: var(--fontsize-16);
     color: var(--textcolor);
     font-weight: 400;
@@ -42,13 +44,21 @@
     margin-bottom: 2rem;
 }
 
-.login_page .login-form input::placeholder {
+.signup_page .register-form input::placeholder {
     font-size: var(--fontsize-14);
     color: var(--primarycolor);
     font-weight: 400;
 }
 
-.login_page button {
+.signup_page .register-form label{
+    color: var(--iconcolor);
+    font-size: var(--fontsize-14);
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.signup_page .register-form button {
     background-color: var(--anothercolor);
     padding: 01rem 2em;
     border-radius: 0.4rem;
@@ -64,31 +74,31 @@
     transition: all 0.2s ease-in-out;
 }
 
-.login_page button:hover {
+.signup_page .register-form button:hover {
     transform: scale(1.05);
 }
 
-.login_page .login-form .error {
-    color: var(--favoritecolor);
+.signup_page .register-form .error {
+   color: var(--favoritecolor);
     font-size: var(--fontsize-16);
     margin-top: 1rem;
     text-align: center;
 }
 
-.login_page .login-form p {
-    text-align: center;
+.signup_page .register-form p {
+  text-align: center;
     margin-top: 4.8rem;
     font-size: var(--fontsize-16);
     font-weight: 400;
     color: var(--textcolor);
 }
 
-.login-form a {
-    color: var(--primarycolor);
+.signup_page .register-form a {
+  color: var(--primarycolor);
     text-decoration: none;
     font-weight: 800;
 }
 
-.login-form a:hover {
-    text-decoration: underline;
+.signup_page .register-form a:hover {
+  text-decoration: underline;
 }

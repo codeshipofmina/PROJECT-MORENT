@@ -19,22 +19,19 @@ html {
     scroll-behavior: smooth;
 }
 
-/* html, body {
+html,
+body {
     height: 100%;
-    margin: 0;
-    overflow: hidden;
-  } */
+}
 
-  .layout-container {
+.layout-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
+}
 
-main{
-display: flex;
-  flex-direction: column;
-  flex: 1;
+main {
+    flex: 1;
 }
 
 :root {
@@ -49,18 +46,17 @@ display: flex;
     --fontsize-40: 4rem;
     --fontsize-72: 7.2rem;
 
-    --backgroundcolor: #F0F0F0;
-    --inputcolor: #D2D2D2;
-    --primarycolor: #FF7F59;
-    --additionalcolor: #FFA37A;
+    --backgroundcolor: #f0f0f0;
+    --inputcolor: #d2d2d2;
+    --primarycolor: #ff7f59;
+    --additionalcolor: #ffa37a;
     --anothercolor: #01a5a5;
-    --secondarycolor: #FFC8A6;
-    --tertiarycolor: #FFE7D3;
+    --secondarycolor: #ffc8a6;
+    --tertiarycolor: #ffe7d3;
     --textcolor: #333333;
     --iconcolor: #969696;
-    --reviewcolor: #D2D2D2;
-    --favoritecolor: #DB2719;
+    --reviewcolor: #d2d2d2;
+    --favoritecolor: #db2719;
 
     --defaultpagemargin: 32px 54px;
-
 }
