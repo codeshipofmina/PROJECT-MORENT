@@ -34,7 +34,8 @@ export default function Login() {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <article className="login_page">
+      <form className="login-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input
         type="email"
@@ -56,5 +57,7 @@ export default function Login() {
       </p>
       {error && <p className="error">{error}</p>}
     </form>
+    </article>
+    
   );
 }

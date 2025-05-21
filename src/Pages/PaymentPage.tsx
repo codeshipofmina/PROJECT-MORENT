@@ -143,6 +143,8 @@ const PaymentPage = () => {
                 </article>
             </div>
             <BigButton onClick={() => {}}>Rent now!</BigButton>
+
+            
         </section>
     );
 };
