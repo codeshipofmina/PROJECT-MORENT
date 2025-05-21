@@ -1,7 +1,8 @@
 import { supabase } from "../lib/supabaseClient";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCarsQuery = ()=> useQuery({
+export const useCarsQuery = () =>
+  useQuery({
     queryFn: async () => {
       const result = await supabase.from("cars").select("*");
 

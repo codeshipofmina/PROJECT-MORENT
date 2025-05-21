@@ -32,7 +32,7 @@ const FavoriteCarsPage = () => {
   // if (isPending) {
   //   return <div>Loading...</div>;
   // }
-  
+
   // const favoriteCars = data.filter((cars) =>
   //   cars.favorites?.some((favorite) => favorite.user_id === session?.user.id)
   // );
