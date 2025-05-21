@@ -1,0 +1,6 @@
+vehicle_card_container {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 2rem;
+}
