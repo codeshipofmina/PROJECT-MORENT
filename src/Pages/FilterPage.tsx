@@ -1,3 +1,5 @@
+// # WIP
+
 import VehicleCard from "../components/VehicleCard";
 import { supabase } from "../lib/supabaseClient";
 import { useState } from "react";
@@ -24,25 +26,40 @@ const FilterPage = () => {
   //   });
 
   return (
-    <section className="filtered-cards-container">
-      <VehicleCard
-        vehicle={{
-          id: "",
-          brand: "",
-          model: "",
-          vehicle_type_id: "",
-          carimg: null,
-          fuel: "",
-          geartype: "",
-          seats: 0,
-          priceperday: 0,
-        }}
-        vehicleType={{
-          id: "",
-          name: null,
-        }}
-      />
-    </section>
+    <div>
+      <section>
+        <h1>Filter</h1>
+        <input
+          className="searchbar"
+          placeholder="Welche Automarke möchtest du fahren?"
+          // onChange={(e) => {
+          //   setSearchText(e.target.value);
+          // }}
+        />
+        <select>
+          
+      </section>
+      {" "}
+      <section className="filtered-cards-container">
+        <VehicleCard
+          vehicle={{
+            id: "",
+            brand: "",
+            model: "",
+            vehicle_type_id: "",
+            carimg: null,
+            fuel: "",
+            geartype: "",
+            seats: 0,
+            priceperday: 0,
+          }}
+          vehicleType={{
+            id: "",
+            name: null,
+          }}
+        />
+      </section>
+    </div>
   );
 };
 
