@@ -17,63 +17,64 @@ import UserProfilePage from "./Pages/UserProfilePage";
 const client = new QueryClient();
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      Component: RootLayout,
-      children: [
+    const router = createBrowserRouter([
         {
-          path: "/",
-          Component: HomePage,
-        },
-        {
-          path: "/filter",
-          Component: FilterPage,
-        },
-        {
-          path: "/:id_vehicle",
-          Component: DetailCarPage,
-        },
-        {
-          path: "/booking",
-          Component: PaymentPage,
-        },
+            Component: RootLayout,
+            children: [
+                {
+                    path: "/",
+                    Component: HomePage,
+                },
+                {
+                    path: "/filter",
+                    Component: FilterPage,
+                },
+                {
+                    path: "/:id_vehicle",
+                    Component: DetailCarPage,
+                },
+                {
+                    path: "/booking",
+                    Component: PaymentPage,
+                },
 
-        {
-          path: "/login",
-          Component: LoginPage,
-        },
-        {
-          path: "/signup",
-          Component: SingupPage,
-        },
-        {
-          path: "/profile",
-          Component: UserProfilePage,
-        },
-        {
-          Component: ProtectedRoute,
-          children: [
-            {
-              path: "/:id_user/bookings",
-              Component: BookingOverviewPage,
-            },
-            {
-              path: "/:id_user/favorites",
-              Component: FavoriteCarsPage,
-            },
-          ],
-        },
-      ],
-    },
-  ]);
+                {
+                    path: "/login",
+                    Component: LoginPage,
+                },
+                {
+                    path: "/signup",
+                    Component: SingupPage,
+                },
 
-  return (
-    <QueryClientProvider client={client}>
-      <AuthContextProvider>
-        <RouterProvider router={router} />
-      </AuthContextProvider>
-    </QueryClientProvider>
-  );
+                {
+                    Component: ProtectedRoute,
+                    children: [
+                        {
+                            path: "/:id_user/bookings",
+                            Component: BookingOverviewPage,
+                        },
+                        {
+                            path: "/:id_user/favorites",
+                            Component: FavoriteCarsPage,
+                        },
+                        {
+                            path: "/:id_user/profile",
+                            Component: UserProfilePage,
+                        },
+                    ],
+                },
+            ],
+        },
+    ]);
+
+    return (
+        <QueryClientProvider client={client}>
+            <AuthContextProvider>
+                <RouterProvider router={router} />
+            </AuthContextProvider>
+        </QueryClientProvider>
+    );
 }
 
 export default App;

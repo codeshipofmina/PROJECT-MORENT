@@ -1,6 +1,16 @@
+.login_page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem 5vw;
+  background-color: var(--reviewcolor);
+  min-height: 80vh;
+}
+
 .login-form {
   width: 300px;
-  margin: 50px auto;
+  margin: 0px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;

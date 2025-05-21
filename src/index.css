@@ -19,6 +19,24 @@ html {
     scroll-behavior: smooth;
 }
 
+/* html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  } */
+
+  .layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+main{
+display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 :root {
     --fontsize-12: 1.2rem;
     --fontsize-14: 1.4rem;
@@ -35,6 +53,7 @@ html {
     --inputcolor: #D2D2D2;
     --primarycolor: #FF7F59;
     --additionalcolor: #FFA37A;
+    --anothercolor: #01a5a5;
     --secondarycolor: #FFC8A6;
     --tertiarycolor: #FFE7D3;
     --textcolor: #333333;
