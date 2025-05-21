@@ -1,10 +1,52 @@
+import VehicleCard from "../components/VehicleCard";
+import { supabase } from "../lib/supabaseClient";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useVehicleTypesQuery } from "../hooks/useVehicleTypesQuery";
+
 const FilterPage = () => {
-  return <div></div>;
+  // const { signOut, session } = useAuthContext();
+  //   const { data, isError, isPending } = useQuery({
+  //     queryFn: async () => {
+  //       const carRequest = supabase
+  //         .from("cars")
+  //         .select("*, categories(*), profiles(*)");
+
+  //       const result = await carRequest;
+
+  //       if (result.data) {
+  //         return result.data;
+  //       } else {
+  //         throw result.error;
+  //       }
+  //     },
+  //     queryKey: ["cars", "homepage", { searchText: searchText }],
+  //   });
+
+  return (
+    <section className="filtered-cards-container">
+      <VehicleCard
+        vehicle={{
+          id: "",
+          brand: "",
+          model: "",
+          vehicle_type_id: "",
+          carimg: null,
+          fuel: "",
+          geartype: "",
+          seats: 0,
+          priceperday: 0,
+        }}
+        vehicleType={{
+          id: "",
+          name: null,
+        }}
+      />
+    </section>
+  );
 };
 
 export default FilterPage;
-
-
 
 //# Snippets to use/edit -- FilterLogic with Categories and CarCardProps (from early Header-Version1)
 
@@ -18,9 +60,6 @@ export default FilterPage;
 
 //? offen nina: brauchen wir die vehicle card hier? oder rendern wir eine carGallery? or props?
 // import VehicleCard from "./VehicleCard";
-
-
-
 
 // export default function FilterPage() {
 // const { signOut, session } = useAuthContext();
@@ -67,7 +106,7 @@ export default FilterPage;
 //         {data && (
 //           <section className="car-selection">
 //             {data.map((car) => (
-//           <VehicleCard 
+//           <VehicleCard
 //             key={car.id}
 //             brand={car.brand}
 //             model={car.model}
