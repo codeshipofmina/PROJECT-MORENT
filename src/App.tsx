@@ -12,6 +12,7 @@ import ProtectedRoute from "./layouts/protectedLayout";
 import FavoriteCarsPage from "./Pages/FavoriteCarsPage";
 import { AuthContextProvider } from "./contexts/auth-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import UserProfilePage from "./Pages/UserProfilePage";
 
 const client = new QueryClient();
 
@@ -44,6 +45,10 @@ function App() {
         {
           path: "/signup",
           Component: SingupPage,
+        },
+        {
+          path: "/profile",
+          Component: UserProfilePage,
         },
         {
           Component: ProtectedRoute,
