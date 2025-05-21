@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import RentButton from "./RentButton";
 import "../styles/vehicle_card.css";
 
@@ -14,11 +14,18 @@ interface VehicleCardProps {
     seats: number;
     priceperday: number;
   };
+  vehicleType: {
+    id: string;
+    name: string | null;
+  };
 }
 
 // { vehicle }: VehicleCardProps
 
-export default function VehicleCard({ vehicle }: VehicleCardProps) {
+export default function VehicleCard({
+  vehicle,
+  vehicleType,
+}: VehicleCardProps) {
   return (
     <div>
       <div className="vehicle_card">
@@ -26,6 +33,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
           <h3>
             {vehicle.brand} {vehicle.model}
           </h3>
+          <p>{vehicleType.name ?? "Unknown"}</p>
         </div>
         <div>
           <div>
@@ -46,14 +54,12 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
             <span>{vehicle.seats}</span>
           </div>
         </div>
-
         <div>
           <div>
             <span>€{vehicle.priceperday}</span>
             <span>/ day</span>
           </div>
           <RentButton id_vehicle={vehicle.id} />
-          <Link to={`/cars/${vehicle.id}`}>Rent now</Link>
         </div>
       </div>
     </div>
