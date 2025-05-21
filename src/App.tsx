@@ -46,10 +46,7 @@ function App() {
           path: "/signup",
           Component: SingupPage,
         },
-        {
-          path: "/profile",
-          Component: UserProfilePage,
-        },
+
         {
           Component: ProtectedRoute,
           children: [
@@ -60,6 +57,10 @@ function App() {
             {
               path: "/:id_user/favorites",
               Component: FavoriteCarsPage,
+            },
+            {
+              path: "/:id_user/profile",
+              Component: UserProfilePage,
             },
           ],
         },

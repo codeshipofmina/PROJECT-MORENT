@@ -41,7 +41,7 @@ const FavoriteCarsPage = () => {
 
   return (
     <div>
-      <h2>My Favorite Cars</h2>
+      <h2>👾My Favorite Cars</h2>
       {/* {favoriteCars.map((car) => (
         <VehicleCard
           key={car.id}
