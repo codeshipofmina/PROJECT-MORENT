@@ -1,61 +1,56 @@
 // # WIP
 
-
-
-import { useAuthContext } from "../contexts/auth-context";
-import { supabase } from "../lib/supabaseClient";
-import { useQuery } from "@tanstack/react-query";
-import { useCarsQuery } from "../hooks/useCarsQuery";
+// import { useAuthContext } from "../contexts/auth-context";
+// import { supabase } from "../lib/supabaseClient";
+// import { useQuery } from "@tanstack/react-query";
+// import VehicleCard from "../components/VehicleCard";
 
 const FavoriteCarsPage = () => {
-  const { session } = useAuthContext();
-  const { data, isError, isPending } = useCarsQuery();
+  // const { session } = useAuthContext();
 
-  if (isPending) {
-    return "Is loading...";
-  }
-  if (isError) {
-    return "Leider kaputt.";
-  }
+  // # rework the query. somethings not right with the joins (tablenames and columns)
+  // const { data, isError, isPending } = useQuery({
+  //   queryFn: async () => {
+  //     const favoriteCarsRequest = supabase
+  //       .from("cars")
+  //       .select("*, favorites(user_id), users(*)")
 
-  console.log("here");
+  //     const result = await favoriteCarsRequest;
 
-  console.log(data);
+  //     if (result.data) {
+  //       return result.data;
+  //     } else {
+  //       throw result.error;
+  //     }
+  //   },
+  //   queryKey: ["favoriteCars"],
+  // });
 
-  // const favoriteCars = data.filter(
-  //   (cars) =>
+  // if (isError) {
+  //   return <div>Something went wrong</div>;
+  // }
+  // if (isPending) {
+  //   return <div>Loading...</div>;
+  // }
+  
+  // const favoriteCars = data.filter((cars) =>
+  //   cars.favorites?.some((favorite) => favorite.user_id === session?.user.id)
   // );
-  // message.recipient_id === session?.user.id
+  // console.log("favoriteCars");
+  // console.log(favoriteCars);
 
   return (
     <div>
       <h2>My Favorite Cars</h2>
-      {/* car card where  favorites.user.id  = auth. */}
+      {/* {favoriteCars.map((car) => (
+        <VehicleCard
+          key={car.id}
+          vehicle={car}
+          vehicleType={{ id: "", name: "Unknown" }}
+        />
+      ))}
+      {favoriteCars.length === 0 && <p>No favorite cars found.</p>} */}
     </div>
   );
 };
-
 export default FavoriteCarsPage;
-
-// export const useMessagesQuery = () => {
-//   const { session } = useAuthContext();
-//   return useQuery({
-//     queryFn: async () => {
-//       const result = await supabase.from("favorites").select("*").eq(session?.user.id, "user_id");
-//       if (result.error) {
-//         throw result.error;
-//       }
-
-//       // wir ergaenzen die messages durch die id des jeweils anderen users
-//       const messagesWithOtherUserId = result.data.map((message) => ({
-//         ...message,
-//         otherUserId:
-//           message.recipient_id === session?.user.id // * falls wir selbst der empfänger sind...
-//             ? message.sender_id // * ist der sender unser gespraechspartner
-//             : message.recipient_id, // * falls nicht, ist es der empfänger
-//       }));
-//       return messagesWithOtherUserId;
-//     },
-//     queryKey: ["messages"],
-//   });
-// };

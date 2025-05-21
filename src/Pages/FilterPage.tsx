@@ -1,10 +1,10 @@
 // # WIP
 
-import VehicleCard from "../components/VehicleCard";
-import { supabase } from "../lib/supabaseClient";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { useVehicleTypesQuery } from "../hooks/useVehicleTypesQuery";
+// import VehicleCard from "../components/VehicleCard";
+// import { supabase } from "../lib/supabaseClient";
+// import { useState } from "react";
+// import { useQuery } from "@tanstack/react-query";
+// import { useVehicleTypesQuery } from "../hooks/useVehicleTypesQuery";
 
 const FilterPage = () => {
   // const { signOut, session } = useAuthContext();
@@ -12,7 +12,7 @@ const FilterPage = () => {
   //     queryFn: async () => {
   //       const carRequest = supabase
   //         .from("cars")
-  //         .select("*, categories(*), profiles(*)");
+  //         .select("*, vehicle_types(*), users(*)");
 
   //       const result = await carRequest;
 
@@ -29,35 +29,16 @@ const FilterPage = () => {
     <div>
       <section>
         <h1>Filter</h1>
-        <input
+        {/* <input
           className="searchbar"
           placeholder="Welche Automarke möchtest du fahren?"
-          // onChange={(e) => {
-          //   setSearchText(e.target.value);
-          // }}
-        />
-        <select>
-          
-      </section>
-      {" "}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        /> */}
+      </section>{" "}
       <section className="filtered-cards-container">
-        <VehicleCard
-          vehicle={{
-            id: "",
-            brand: "",
-            model: "",
-            vehicle_type_id: "",
-            carimg: null,
-            fuel: "",
-            geartype: "",
-            seats: 0,
-            priceperday: 0,
-          }}
-          vehicleType={{
-            id: "",
-            name: null,
-          }}
-        />
+        {/* <VehicleCard/> */}
       </section>
     </div>
   );
@@ -86,7 +67,7 @@ export default FilterPage;
 //     queryFn: async () => {
 //       const carRequest = supabase
 //         .from("cars")
-//         .select("*, categories(*), profiles(*)");
+//         .select("*, vehicle_types(*), users(*)");
 
 //       if (searchText.length >= 2) {
 //         carRequest.ilike("brand", `%${searchText}%` || "");
@@ -105,10 +86,6 @@ export default FilterPage;
 
 //   return (
 //     <>
-//       <header className="header-web">
-//         <Link to="/">
-//           <span className="logo">🚗MØRENT</span>
-//         </Link>
 //         <input
 //           className="searchbar"
 //           value={searchText}
@@ -138,54 +115,8 @@ export default FilterPage;
 //         ))}
 //           </section>
 //         )}
-
-//         <section className="header-icons">
-//           {!session && (
-//             <Link to="/login">
-//               <img src={ProfilImg} alt="Login / Signup" />
-//             </Link>
-//           )}
-//           {session && (
-//             <section>
-//               <Link to={"/:id_user/favorites"}>
-//                 <img src={FavouritesImg} alt="Favoriten" />
-//               </Link>
-//               <Link to={"/:id_user/bookings"}>
-//                 <img src={BookingsImg} alt="Bookings" />
-//               </Link>
-//               <button onClick={signOut}>
-//                 <img src={ProfilImg} alt="Sign out" />
-//               </button>
-//             </section>
-//           )}
-//         </section>
-//       </header>
-
-//       <header className="header-mobile">
-//         <Link to="/">
-//           <span className="logo">MøRENT</span>
-//         </Link>
-
-//         <section>
-//           {!session && <Link to="/login">Login / Signup</Link>}
-//           {session && (
-//             <section>
-//               <Link to={"/:id_user/favorites"}>Favoriten</Link>
-//               <Link to={"/:id_user/bookings"}>Bookings</Link>
-//               {/* der signout button müsste eigentlich im aufklappmenü hinter dem profilbild stecken */}
-//               <button onClick={signOut}>Sign out</button>
-//             </section>
-//           )}
-//         </section>
-
-//         <input
-//           className="searchbar"
-//           value={searchText}
-//           onChange={(e) => {
-//             setSearchText(e.target.value);
-//           }}
-//         />
-//       </header>
+//
+//
 //     </>
 //   );
 // }
