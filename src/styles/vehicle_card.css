@@ -1,10 +1,18 @@
 .vehicle_card {
-    width: 309px;
-    height: 395px;
+
+    padding: 20px;
 }
 
 .vehicle_card img {
-    max-width: 100%;
+    width: 100%;
     max-width: 40rem;
     align-self: center;
+    border-radius: 0.5rem;
+}
+
+.vehicle_card h3 {
+    font-size: var(--fontsize-16);
+    font-weight: 700;
+    color: var(--textcolor);
+
 }

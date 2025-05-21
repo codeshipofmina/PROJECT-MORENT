@@ -1,6 +1,25 @@
-vehicle_card_container {
+html {
+    background-color: var(--backgroundcolor);
+}
+
+
+.vehicle_card_container {
     display: grid;
-    grid-template-columns: 4fr 1fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+}
+
+@media (max-width: 500px) {
+    .vehicle_card_container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .vehicle_card_container {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
 }
