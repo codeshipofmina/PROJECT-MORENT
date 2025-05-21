@@ -37,6 +37,7 @@
 .highlight_product .card p{
     font-size: var(--fontsize-16);
     font-weight: 500;
+    color: white;
     line-height: 150%;
     margin-bottom: 2rem;
     max-width: 70%;
