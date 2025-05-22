@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "../styles/Footer.css";
+import morentLogo from "../assets/img/Morent_Logo.png";
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
             <article className="links">
                 <div>
                     <a href="#start">
-                        <h3>MØRENT</h3>
+                        <img src={morentLogo} alt="Mørent Logo" />
                     </a>
                     <p>
                         Our vision is to provide convenience and help increase

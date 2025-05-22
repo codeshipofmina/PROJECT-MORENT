@@ -26,11 +26,16 @@
     }
 }
 
-.footer .links h3 {
-    color: var(--primarycolor);
-    font-size: var(--fontsize-24);
-    font-weight: 700;
+.footer .links img {
+    height: 3rem;
     margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    .footer .links img {
+    height: 2rem;
+    
+}
 }
 
 .footer .links p {

@@ -16,11 +16,16 @@
   height: 4.4rem;
 }
 
+@media (max-width: 600px) {
+  .header .header-logo {
+  height: 3rem;
+}
+}
+
 .header .icon_container{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   height: 5rem;
   width: 5rem;
   border-radius: 2.5rem;
@@ -30,6 +35,17 @@
 }
 .header svg{
   height: 3rem;
+}
+
+@media (max-width: 600px) {
+ .header .icon_container{
+  height: 4rem;
+  width: 4rem;
+  border-radius: 2rem;
+}
+.header svg{
+  height: 2.5rem;
+}
 }
 
 .header svg.profil_icon{
@@ -71,6 +87,12 @@
   gap: 2rem;
 }
 
+@media (max-width: 600px) {
+.header .profile-wrapper {
+  gap: 0.8rem;
+}
+}
+
 .header .profile-avatar {
   width: 4rem;
   height: 4rem;
@@ -79,6 +101,13 @@
   cursor: pointer;
   object-fit: cover;
   /* transition: box-shadow 0.2s ease; */
+}
+
+@media (max-width: 600px) {
+.header .profile-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+}
 }
 
 /* .header .profile-avatar:hover {
@@ -99,6 +128,13 @@
   animation: fadeIn 0.2s ease-out;
 }
 
+@media (max-width: 600px) {
+.header .dropdown-menu {
+  top: 48px;
+  right: -2px;
+ }
+}
+
 .header .dropdown-menu::before {
   content: "";
   position: absolute;
@@ -114,7 +150,7 @@
   display: block;
   width: 100%;
   padding: 10px 16px;
-  font-size: 14px;
+  font-size: var(--fontsize-16);
   text-align: left;
   border: none;
   background: none;
@@ -126,12 +162,13 @@
 
 .header .dropdown-menu a:hover,
 .header .dropdown-menu button:hover {
-  background-color: #f2f2f2;
+  background-color: var(--backgroundcolor);
+
 }
 
-.header .dropdown-menu button {
+/* .header .dropdown-menu button {
   font-family: inherit;
-}
+} */
 
 /* Animasyon */
 @keyframes fadeIn {
