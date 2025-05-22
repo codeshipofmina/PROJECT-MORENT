@@ -9,11 +9,16 @@ const BookingOverviewPage = () => {
     isPending,
   } = useQuery({
     queryFn: async () => {
-      const bookedCarsRequest = supabase.from("bookings").select("cars(*)");
+      const bookedCarsRequest = supabase.from("bookings").select("*, cars(*)");
 
       const result = await bookedCarsRequest;
 
       if (result.data) {
+        // * get startdate, enddate from the booking
+        // const bookingDate = result.data.map((booking) => {
+        //   const startDate = new Date(booking.start_date)
+        //   const endDate = new Date(booking.end_date)
+        // });
         return result.data.map((car) => car.cars);
       } else {
         throw result.error;
@@ -38,7 +43,7 @@ const BookingOverviewPage = () => {
                 vehicleType={{ id: "", name: "Unknown" }}
               />
             ))}
-            {favoriteCarData.length === 0 && <p>No favorite cars found.</p>}
+            {bookedCarData.length === 0 && <p>No booked cars yet.</p>}
     </div>
   );
 };
