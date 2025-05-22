@@ -51,9 +51,9 @@ export default function Login() {
         required
         onChange={handleChange}
       />
-      <button type="submit">Login</button>
+      <button  type="submit">Login</button>
       <p>
-        Don't have an account? <Link to="/signup">Sign up</Link>
+        Don't have an account? <br /><Link to="/signup">Sign up</Link>
       </p>
       {error && <p className="error">{error}</p>}
     </form>
