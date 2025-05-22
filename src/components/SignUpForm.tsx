@@ -39,24 +39,28 @@ export default function Register() {
     }
 
     let avatar_url = null;
+    const BUCKET = "profile-pictures";
 
     if (avatar) {
       const fileExt = avatar.name.split(".").pop();
       const fileName = `${authData.user.id}.${fileExt}`;
-      const filePath = `profile-pictures/${fileName}`;
+      const filePath = `${BUCKET}/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("avatars")
+        .from(BUCKET)
         .upload(filePath, avatar);
 
       if (uploadError) {
-        setError("Photo could not be uploaded.");
+        console.error("Upload Error:", uploadError);
+        setError("Photo could not be uploaded: " + uploadError.message);
         return;
       }
 
       const {
         data: { publicUrl },
-      } = supabase.storage.from("profile-pictures").getPublicUrl(filePath);
+      } = supabase.storage
+        .from(BUCKET)
+        .getPublicUrl(filePath, { download: false });
 
       avatar_url = publicUrl;
     }
@@ -76,8 +80,10 @@ export default function Register() {
   };
 
   return (
+
     <article className="signup_page">
-      <form className="register-form" onSubmit={handleSubmit}>
+      <form className="register-form" onSubmit={handleSubmit} encType="multipart/form-data">
+
       <h2>Register</h2>
       <input
         type="email"
