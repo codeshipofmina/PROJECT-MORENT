@@ -35,7 +35,7 @@ export default function Header() {
     return (
         <>
             <header className="header" id="start">
-                <Link to="/">
+                <Link to="/"  >
                     <img
                         className="header-logo"
                         src={morentLogo}

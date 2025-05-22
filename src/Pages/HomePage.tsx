@@ -5,6 +5,7 @@ import "../styles/homepage.css";
 import VehicleCard from "../components/VehicleCard.tsx";
 
 const HomePage = () => {
+  
   const { data: vehicles } = useQuery({
     queryFn: async () => {
       const result = await supabase.from("cars").select("*");
