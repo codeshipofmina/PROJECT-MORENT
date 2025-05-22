@@ -11,34 +11,34 @@ export type Database = {
     Tables: {
       bookings: {
         Row: {
-          car_id: string | null
-          created_at: string | null
-          end_date: string | null
+          car_id: string
+          created_at: string
+          end_date: string
           id: string
-          start_date: string | null
+          start_date: string
           status: string | null
-          total_price: number | null
-          user_id: string | null
+          total_price: number
+          user_id: string
         }
         Insert: {
-          car_id?: string | null
-          created_at?: string | null
-          end_date?: string | null
+          car_id: string
+          created_at?: string
+          end_date: string
           id?: string
-          start_date?: string | null
+          start_date: string
           status?: string | null
-          total_price?: number | null
-          user_id?: string | null
+          total_price: number
+          user_id: string
         }
         Update: {
-          car_id?: string | null
-          created_at?: string | null
-          end_date?: string | null
+          car_id?: string
+          created_at?: string
+          end_date?: string
           id?: string
-          start_date?: string | null
+          start_date?: string
           status?: string | null
-          total_price?: number | null
-          user_id?: string | null
+          total_price?: number
+          user_id?: string
         }
         Relationships: [
           {

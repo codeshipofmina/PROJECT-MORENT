@@ -7,7 +7,7 @@ import DetailCarPage from "./Pages/DetailCarPage";
 import PaymentPage from "./Pages/PaymentPage";
 import LoginPage from "./Pages/LoginPage";
 import SingupPage from "./Pages/SingupPage";
-import BookingOverviewPage from "./Pages/BookingOverviewPage";
+import BookedCarsPage from "./Pages//BookedCarsPage";
 import ProtectedRoute from "./layouts/protectedLayout";
 import FavoriteCarsPage from "./Pages/FavoriteCarsPage";
 import { AuthContextProvider } from "./contexts/auth-context";
@@ -52,7 +52,7 @@ function App() {
                     children: [
                         {
                             path: "/user/bookings",
-                            Component: BookingOverviewPage,
+                            Component: BookedCarsPage,
                         },
                         {
                             path: "/user/favorites",
