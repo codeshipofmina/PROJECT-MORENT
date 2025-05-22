@@ -51,13 +51,13 @@ export default function VehicleCard({
 
               <p>{vehicle.geartype}</p>
 
+              <p>{vehicle.seats} Seats</p>
+            </div>
+            <div className="vehicle_card_horstpower">
               <p>
                 {vehicle.horstpower} HorstPower
                 <span className="vehicle_card_horst"> 🐎</span>
               </p>
-            </div>
-            <div className="vehicle_card_seats">
-              <p>{vehicle.seats} Seats</p>
             </div>
           </div>
           <div className="vehicle_card_pricebooking">
