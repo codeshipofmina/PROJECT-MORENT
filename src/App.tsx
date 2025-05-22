@@ -51,15 +51,15 @@ function App() {
                     Component: ProtectedRoute,
                     children: [
                         {
-                            path: "/:id_user/bookings",
+                            path: "/user/bookings",
                             Component: BookingOverviewPage,
                         },
                         {
-                            path: "/:id_user/favorites",
+                            path: "/user/favorites",
                             Component: FavoriteCarsPage,
                         },
                         {
-                            path: "/:id_user/profile",
+                            path: "/user/profile",
                             Component: UserProfilePage,
                         },
                     ],
