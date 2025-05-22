@@ -16,42 +16,79 @@
   height: 4.4rem;
 }
 
-.header .header-icons {
+.header .icon_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 2.5rem;
+  border: 1px solid var(--backgroundcolor);
+  background-color: var(--backgroundcolor);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);;
+}
+.header svg{
+  height: 3rem;
+}
+
+.header svg.profil_icon{
+  fill: var(--anothercolor);
+}
+
+.header svg.lucide-heart-icon, .header svg.lucide-bookmark-icon{
+  stroke: var(--anothercolor);
+}
+
+.header svg.lucide-heart-icon{
+  stroke: var(--anothercolor);
+}
+
+.header .icon_container:hover{
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .header .header-icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   color: var(--textcolor);
-}
+} */
 
+/* 
 .header .header-icons img {
   width: 24px;
   height: 24px;
   color: var(--primarycolor);
-}
+} */
 
 .header .profile-wrapper {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .header .profile-avatar {
-  width: 36px;
-  height: 36px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
+  border: 1px solid var(--backgroundcolor);
   cursor: pointer;
   object-fit: cover;
-  transition: box-shadow 0.2s ease;
+  /* transition: box-shadow 0.2s ease; */
 }
 
-.header .profile-avatar:hover {
+/* .header .profile-avatar:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .header .dropdown-menu {
   position: absolute;
-  top: 44px;
-  right: 0;
+  top: 60px;
+  right: 5px;
   min-width: 160px;
   background: #fff;
   border: 1px solid #ddd;
@@ -81,7 +118,7 @@
   text-align: left;
   border: none;
   background: none;
-  color: #333;
+  color: var(--textcolor);
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.2s;
