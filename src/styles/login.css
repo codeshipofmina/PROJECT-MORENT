@@ -1,17 +1,13 @@
 .login_page {
-    /* flex: 1; */
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    /* height: 100%; */
     padding: 3.2rem 5vw;
     background-color: var(--reviewcolor);
 }
 
-.login_page {
-    outline: 2px dashed rgb(255, 51, 0);
-}
-/** Hier noch klären, warum HG nicht auf ganzer Seite!!*/
 
 .login_page .login-form {
     max-width: 100%;
