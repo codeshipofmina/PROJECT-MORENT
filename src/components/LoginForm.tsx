@@ -34,7 +34,8 @@ export default function Login() {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <article className="login_page">
+      <form className="login-form" onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input
         type="email"
@@ -50,11 +51,13 @@ export default function Login() {
         required
         onChange={handleChange}
       />
-      <button type="submit">Login</button>
+      <button  type="submit">Login</button>
       <p>
-        Don't have an account? <Link to="/signup">Sign up</Link>
+        Don't have an account? <br /><Link to="/signup">Sign up</Link>
       </p>
       {error && <p className="error">{error}</p>}
     </form>
+    </article>
+    
   );
 }
