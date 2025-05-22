@@ -1,10 +1,50 @@
+// # WIP
+
+// import VehicleCard from "../components/VehicleCard";
+// import { supabase } from "../lib/supabaseClient";
+// import { useState } from "react";
+// import { useQuery } from "@tanstack/react-query";
+// import { useVehicleTypesQuery } from "../hooks/useVehicleTypesQuery";
+
 const FilterPage = () => {
-  return <div></div>;
+  // const { signOut, session } = useAuthContext();
+  //   const { data, isError, isPending } = useQuery({
+  //     queryFn: async () => {
+  //       const carRequest = supabase
+  //         .from("cars")
+  //         .select("*, vehicle_types(*), users(*)");
+
+  //       const result = await carRequest;
+
+  //       if (result.data) {
+  //         return result.data;
+  //       } else {
+  //         throw result.error;
+  //       }
+  //     },
+  //     queryKey: ["cars", "homepage", { searchText: searchText }],
+  //   });
+
+  return (
+    <div>
+      <section>
+        <h1>Filter</h1>
+        {/* <input
+          className="searchbar"
+          placeholder="Welche Automarke möchtest du fahren?"
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        /> */}
+      </section>{" "}
+      <section className="filtered-cards-container">
+        {/* <VehicleCard/> */}
+      </section>
+    </div>
+  );
 };
 
 export default FilterPage;
-
-
 
 //# Snippets to use/edit -- FilterLogic with Categories and CarCardProps (from early Header-Version1)
 
@@ -19,9 +59,6 @@ export default FilterPage;
 //? offen nina: brauchen wir die vehicle card hier? oder rendern wir eine carGallery? or props?
 // import VehicleCard from "./VehicleCard";
 
-
-
-
 // export default function FilterPage() {
 // const { signOut, session } = useAuthContext();
 //   const [searchText, setSearchText] = useState("");
@@ -30,7 +67,7 @@ export default FilterPage;
 //     queryFn: async () => {
 //       const carRequest = supabase
 //         .from("cars")
-//         .select("*, categories(*), profiles(*)");
+//         .select("*, vehicle_types(*), users(*)");
 
 //       if (searchText.length >= 2) {
 //         carRequest.ilike("brand", `%${searchText}%` || "");
@@ -49,10 +86,6 @@ export default FilterPage;
 
 //   return (
 //     <>
-//       <header className="header-web">
-//         <Link to="/">
-//           <span className="logo">🚗MØRENT</span>
-//         </Link>
 //         <input
 //           className="searchbar"
 //           value={searchText}
@@ -67,7 +100,7 @@ export default FilterPage;
 //         {data && (
 //           <section className="car-selection">
 //             {data.map((car) => (
-//           <VehicleCard 
+//           <VehicleCard
 //             key={car.id}
 //             brand={car.brand}
 //             model={car.model}
@@ -82,54 +115,8 @@ export default FilterPage;
 //         ))}
 //           </section>
 //         )}
-
-//         <section className="header-icons">
-//           {!session && (
-//             <Link to="/login">
-//               <img src={ProfilImg} alt="Login / Signup" />
-//             </Link>
-//           )}
-//           {session && (
-//             <section>
-//               <Link to={"/:id_user/favorites"}>
-//                 <img src={FavouritesImg} alt="Favoriten" />
-//               </Link>
-//               <Link to={"/:id_user/bookings"}>
-//                 <img src={BookingsImg} alt="Bookings" />
-//               </Link>
-//               <button onClick={signOut}>
-//                 <img src={ProfilImg} alt="Sign out" />
-//               </button>
-//             </section>
-//           )}
-//         </section>
-//       </header>
-
-//       <header className="header-mobile">
-//         <Link to="/">
-//           <span className="logo">MøRENT</span>
-//         </Link>
-
-//         <section>
-//           {!session && <Link to="/login">Login / Signup</Link>}
-//           {session && (
-//             <section>
-//               <Link to={"/:id_user/favorites"}>Favoriten</Link>
-//               <Link to={"/:id_user/bookings"}>Bookings</Link>
-//               {/* der signout button müsste eigentlich im aufklappmenü hinter dem profilbild stecken */}
-//               <button onClick={signOut}>Sign out</button>
-//             </section>
-//           )}
-//         </section>
-
-//         <input
-//           className="searchbar"
-//           value={searchText}
-//           onChange={(e) => {
-//             setSearchText(e.target.value);
-//           }}
-//         />
-//       </header>
+//
+//
 //     </>
 //   );
 // }

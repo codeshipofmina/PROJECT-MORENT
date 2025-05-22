@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
-import "../styles/register.css";
+import "../styles/signup_page.css";
 import { Link } from "react-router-dom";
 
 export default function Register() {
@@ -80,11 +80,10 @@ export default function Register() {
   };
 
   return (
-    <form
-      className="register-form"
-      onSubmit={handleSubmit}
-      encType="multipart/form-data"
-    >
+
+    <article className="signup_page">
+      <form className="register-form" onSubmit={handleSubmit} encType="multipart/form-data">
+
       <h2>Register</h2>
       <input
         type="email"
@@ -120,6 +119,7 @@ export default function Register() {
         placeholder="Phone"
         onChange={handleChange}
       />
+      <label htmlFor="avatar">Profile-Image</label>
       <input
         type="file"
         name="avatar"
@@ -128,9 +128,11 @@ export default function Register() {
       />
       <button type="submit">Register</button>
       <p>
-        Do you already have an account?? <Link to="/login">Log in</Link>
+        Do you already have an account?? <br /><Link to="/login">Log in</Link>
       </p>
       {error && <p className="error">{error}</p>}
     </form>
+    </article>
+    
   );
 }
