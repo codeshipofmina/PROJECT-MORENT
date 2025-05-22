@@ -166,19 +166,19 @@ export type Database = {
       }
       favorites: {
         Row: {
-          car_id: string | null
+          car_id: string
           id: string
-          user_id: string | null
+          user_id: string
         }
         Insert: {
-          car_id?: string | null
+          car_id: string
           id?: string
-          user_id?: string | null
+          user_id: string
         }
         Update: {
-          car_id?: string | null
+          car_id?: string
           id?: string
-          user_id?: string | null
+          user_id?: string
         }
         Relationships: [
           {

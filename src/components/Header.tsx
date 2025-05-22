@@ -32,7 +32,6 @@ export default function Header() {
     fetchAvatar();
   }, [session]);
 
-
   return (
     <>
       <header className="header" id="start">
@@ -48,13 +47,13 @@ export default function Header() {
           ) : (
             <div className="profile-wrapper">
               <Link
-                to={"/:id_user/favorites"}
+                to={"/user/favorites"}
                 onClick={() => setMenuOpen(false)}
               >
                 <img src={FavouritesImg} alt="Favourites" />
               </Link>
               <Link
-                to={"/:id_user/bookings"}
+                to={"/user/bookings"}
                 onClick={() => setMenuOpen(false)}
               >
                 <img src={BookingsImg} alt="Bookings" />
@@ -74,7 +73,6 @@ export default function Header() {
                 </div>
               )}
             </div>
-
           )}
         </section>
       </header>
