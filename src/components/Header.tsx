@@ -1,7 +1,7 @@
 import { useAuthContext } from "../contexts/auth-context";
 import { Link } from "react-router";
 import { supabase } from "../lib/supabaseClient";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import VehicleCard from "./VehicleCard";
 import "../styles/header.css";
@@ -12,6 +12,25 @@ import BookingsImg from "../assets/img/save.svg";
 export default function Header() {
   const { signOut, session } = useAuthContext();
   const [searchText, setSearchText] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // To get avatar_url
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      if (session?.user?.id) {
+        const { data } = await supabase
+          .from("users")
+          .select("avatar_url")
+          .eq("id", session.user.id)
+          .single();
+        if (data?.avatar_url) {
+          setAvatarUrl(data.avatar_url);
+        }
+      }
+    };
+    fetchAvatar();
+  }, [session]);
 
   const { data, isError, isPending } = useQuery({
     queryFn: async () => {
@@ -40,6 +59,7 @@ export default function Header() {
         <Link to="/">
           <span className="logo">🚗MØRENT</span>
         </Link>
+
         <input
           className="searchbar"
           value={searchText}
@@ -54,40 +74,57 @@ export default function Header() {
         {data && (
           <section className="car-selection">
             {data.map((car) => (
-          <VehicleCard 
-            key={car.id}
-            brand={car.brand}
-            model={car.model}
-            type={car.vehicle_type_id}
-            id={car.id}
-            fuel={car.fuel}
-            imagePath={car.carimg}
-            geartype={car.geartype}
-            seats={car.seats}
-            price={car.priceperday}
-          />
-        ))}
+              <VehicleCard
+                key={car.id}
+                brand={car.brand}
+                model={car.model}
+                type={car.vehicle_type_id}
+                id={car.id}
+                fuel={car.fuel}
+                imagePath={car.carimg}
+                geartype={car.geartype}
+                seats={car.seats}
+                price={car.priceperday}
+              />
+            ))}
           </section>
         )}
 
         <section className="header-icons">
-          {!session && (
+          {!session ? (
             <Link to="/login">
               <img src={ProfilImg} alt="Login / Signup" />
             </Link>
-          )}
-          {session && (
-            <section>
-              <Link to={"/:id_user/favorites"}>
-                <img src={FavouritesImg} alt="Favoriten" />
+          ) : (
+            <div className="profile-wrapper">
+              <Link
+                to={"/:id_user/favorites"}
+                onClick={() => setMenuOpen(false)}
+              >
+                <img src={FavouritesImg} alt="Favourites" />
               </Link>
-              <Link to={"/:id_user/bookings"}>
+              <Link
+                to={"/:id_user/bookings"}
+                onClick={() => setMenuOpen(false)}
+              >
                 <img src={BookingsImg} alt="Bookings" />
               </Link>
-              <button onClick={signOut}>
-                <img src={ProfilImg} alt="Sign out" />
-              </button>
-            </section>
+              <img
+                src={avatarUrl || ProfilImg}
+                alt="Profil"
+                className="profile-avatar"
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+              {menuOpen && (
+                <div className="dropdown-menu">
+                  <Link to="/user/profile" onClick={() => setMenuOpen(false)}>
+                    Mein Profil
+                  </Link>
+
+                  <button onClick={signOut}>Sign out</button>
+                </div>
+              )}
+            </div>
           )}
         </section>
       </header>
@@ -98,17 +135,39 @@ export default function Header() {
         </Link>
 
         <section>
-          {!session && <Link to="/login">Login / Signup</Link>}
-          {session && (
-            <section>
-              <Link to={"/:id_user/favorites"}>Favoriten</Link>
-              <Link to={"/:id_user/bookings"}>Bookings</Link>
-              {/* der signout button müsste eigentlich im aufklappmenü hinter dem profilbild stecken */}
-              <button onClick={signOut}>Sign out</button>
-            </section>
+          {!session ? (
+            <Link to="/login">Login / Signup</Link>
+          ) : (
+            <div className="profile-wrapper">
+              <img
+                src={avatarUrl || ProfilImg}
+                alt="Profil"
+                className="profile-avatar"
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+              {menuOpen && (
+                <div className="dropdown-menu">
+                  <Link
+                    to={`/user/${session.user.id}/bookings`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Bookings
+                  </Link>
+                  <Link
+                    to={`/user/${session.user.id}/favorites`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Favourites
+                  </Link>
+                  <Link to="/user/profile" onClick={() => setMenuOpen(false)}>
+                    Profile
+                  </Link>
+                  <button onClick={signOut}>Sign out</button>
+                </div>
+              )}
+            </div>
           )}
         </section>
-
         <input
           className="searchbar"
           value={searchText}
