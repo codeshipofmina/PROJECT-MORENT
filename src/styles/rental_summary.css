@@ -1,0 +1,6 @@
+.rental-summary-img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+}

@@ -6,6 +6,7 @@ import bitcoinImg from "../assets/img/Bitcoin.png";
 import safetyImg from "../assets/img/ic-security-safety.png";
 import "../styles/payment_page.css";
 import BigButton from "../components/BigButton";
+import RentalSummary from "../components/RentalSummary";
 
 const PaymentPage = () => {
     return (
@@ -137,9 +138,11 @@ const PaymentPage = () => {
                     </form>
                 </article>
                 {/* Platzhalter */}
+                
                 <article className="rental_summary">
                     <h2>Rental Summary</h2>
                     <p>Ich bin ein Platzhalter</p>
+                    <RentalSummary />
                 </article>
             </div>
             <BigButton onClick={() => {}}>Rent now!</BigButton>
