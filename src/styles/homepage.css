@@ -2,24 +2,31 @@ html {
     background-color: var(--backgroundcolor);
 }
 
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
 
 .vehicle_card_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-
-}
-
-@media (max-width: 500px) {
-    .vehicle_card_container {
-        grid-template-columns: 1fr;
-    }
+    padding: 3.2rem 5vw;
+    max-width: 2300px;
+    justify-content: center;
 
 }
 
 @media (max-width: 900px) {
     .vehicle_card_container {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
 
+@media (max-width: 500px) {
+    .vehicle_card_container {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -1,7 +1,7 @@
 .vehicle_card {
     background-color: white;
     padding: 20px;
-    width: 300px;
+    max-width: 460px;
 }
 
 .vehicle_card img {
@@ -48,8 +48,10 @@
     padding: 15px 0px;
 }
 
-.vehicle_card_seats {
+.vehicle_card_horstpower {
     padding: 0px 0px;
+    justify-content: center;
+    text-align: center;
 }
 
 .vehicle_card_pricebooking {

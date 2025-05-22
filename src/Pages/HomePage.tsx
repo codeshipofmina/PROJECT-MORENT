@@ -28,7 +28,7 @@ const HomePage = () => {
   });
 
   return (
-    <div>
+    <div className="homepage-container">
       <HighlightProduct />
       <div className="vehicle_card_container">
         {vehicles?.map((vehicle) => {

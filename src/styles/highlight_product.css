@@ -3,9 +3,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
+    max-width: 2300px;
+    justify-content: center;
 }
 
-.highlight_product .card{
+.highlight_product .card {
     padding: 2.4rem 2.4rem;
     background-color: var(--additionalcolor);
     background-size: cover;
@@ -19,22 +21,22 @@
     color: white
 }
 
-.highlight_product .ferrari{
+.highlight_product .ferrari {
     background-image: url("../assets/img/highlight_background_1.png");
 }
 
-.highlight_product .lamborghini{
+.highlight_product .lamborghini {
     background-image: url("../assets/img/highlight_background_2.png");
 }
 
-.highlight_product .card h2{
+.highlight_product .card h2 {
     font-size: var(--fontsize-32);
     font-weight: 600;
     line-height: 160%;
     margin-bottom: 1.6rem;
 }
 
-.highlight_product .card p{
+.highlight_product .card p {
     font-size: var(--fontsize-16);
     font-weight: 500;
     color: white;
@@ -55,15 +57,15 @@
         padding: 3.2rem 7vw;
         display: grid;
         grid-template-columns: 1fr;
-            }
+    }
 
-    .highlight_product .lamborghini{
-    display: none;
-}
+    .highlight_product .lamborghini {
+        display: none;
+    }
 
-.highlight_product .card p{
-    
-    max-width: 90%;
-}
+    .highlight_product .card p {
+
+        max-width: 90%;
+    }
 
 }
