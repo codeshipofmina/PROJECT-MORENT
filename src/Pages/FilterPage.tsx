@@ -120,3 +120,13 @@ export default FilterPage;
 //     </>
 //   );
 // }
+
+// use to give location and car_id into payment page and rental summary component
+
+// <Link to="/" state={{name: "pedro", location: "{}"}} ></Link>
+
+// import { useLocation } from "react-router";
+
+// const HomePage = () => {
+//   const location = useLocation();
+//   console.log(location.state);
