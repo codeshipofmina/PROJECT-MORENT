@@ -1,6 +1,7 @@
 .vehicle_card {
-
+    background-color: white;
     padding: 20px;
+    width: 300px;
 }
 
 .vehicle_card img {
@@ -10,9 +11,50 @@
     border-radius: 0.5rem;
 }
 
+.vehicle_card_title {
+    padding: 10px 0px;
+}
+
 .vehicle_card h3 {
     font-size: var(--fontsize-16);
     font-weight: 700;
     color: var(--textcolor);
+}
 
+.vehicle_card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.vehicle_card p {
+    font-size: var(--fontsize-14);
+    color: var(--textcolor);
+}
+
+.vehicle_card span {
+    font-weight: 700;
+}
+
+.vehicle_card_horst {
+    padding: 0px 5px
+}
+
+.vehicle_card_info {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 15px 0px;
+}
+
+.vehicle_card_seats {
+    padding: 0px 0px;
+}
+
+.vehicle_card_pricebooking {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px 15px 0px;
 }

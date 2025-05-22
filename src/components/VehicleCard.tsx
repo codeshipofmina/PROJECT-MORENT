@@ -13,6 +13,7 @@ interface VehicleCardProps {
     geartype: string;
     seats: number;
     priceperday: number;
+    horstpower: string;
   };
   vehicleType: {
     id: string;
@@ -29,7 +30,7 @@ export default function VehicleCard({
   return (
     <div>
       <div className="vehicle_card">
-        <div>
+        <div className="vehicle_card_title">
           <h3>
             {vehicle.brand} {vehicle.model}
           </h3>
@@ -43,23 +44,33 @@ export default function VehicleCard({
             />
           </div>
         </div>
-        <div>
+        <div className="vehicle_card_details">
           <div>
-            <span>{vehicle.fuel}</span>
+            <div className="vehicle_card_info">
+              <p>{vehicle.fuel}</p>
+
+              <p>{vehicle.geartype}</p>
+
+              <p>
+                {vehicle.horstpower} HorstPower
+                <span className="vehicle_card_horst"> 🐎</span>
+              </p>
+            </div>
+            <div className="vehicle_card_seats">
+              <p>{vehicle.seats} Seats</p>
+            </div>
           </div>
-          <div>
-            <span>{vehicle.geartype}</span>
+          <div className="vehicle_card_pricebooking">
+            <div>
+              <p>
+                <span>€{vehicle.priceperday}</span> / day
+              </p>
+            </div>
+            <div>
+              {" "}
+              <RentButton id_vehicle={vehicle.id} />
+            </div>
           </div>
-          <div>
-            <span>{vehicle.seats}</span>
-          </div>
-        </div>
-        <div>
-          <div>
-            <span>€{vehicle.priceperday}</span>
-            <span>/ day</span>
-          </div>
-          <RentButton id_vehicle={vehicle.id} />
         </div>
       </div>
     </div>
