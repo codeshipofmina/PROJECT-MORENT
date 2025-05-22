@@ -1,14 +1,18 @@
 .header {
   padding: 4rem 3vw;
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--backgroundcolor);
 }
+
+.header_shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 600px) {
   .header {
-        padding: 4rem 8vw;
+    padding: 4rem 8vw;
   }
 }
 
@@ -18,11 +22,11 @@
 
 @media (max-width: 600px) {
   .header .header-logo {
-  height: 3rem;
-}
+    height: 3rem;
+  }
 }
 
-.header .icon_container{
+.header .icon_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,36 +35,40 @@
   border-radius: 2.5rem;
   border: 1px solid var(--backgroundcolor);
   background-color: var(--backgroundcolor);
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+  ;
 }
-.header svg{
+
+.header svg {
   height: 3rem;
 }
 
 @media (max-width: 600px) {
- .header .icon_container{
-  height: 4rem;
-  width: 4rem;
-  border-radius: 2rem;
-}
-.header svg{
-  height: 2.5rem;
-}
+  .header .icon_container {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 2rem;
+  }
+
+  .header svg {
+    height: 2.5rem;
+  }
 }
 
-.header svg.profil_icon{
+.header svg.profil_icon {
   fill: var(--anothercolor);
 }
 
-.header svg.lucide-heart-icon, .header svg.lucide-bookmark-icon{
+.header svg.lucide-heart-icon,
+.header svg.lucide-bookmark-icon {
   stroke: var(--anothercolor);
 }
 
-.header svg.lucide-heart-icon{
+.header svg.lucide-heart-icon {
   stroke: var(--anothercolor);
 }
 
-.header .icon_container:hover{
+.header .icon_container:hover {
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
@@ -88,9 +96,9 @@
 }
 
 @media (max-width: 600px) {
-.header .profile-wrapper {
-  gap: 0.8rem;
-}
+  .header .profile-wrapper {
+    gap: 0.8rem;
+  }
 }
 
 .header .profile-avatar {
@@ -104,10 +112,10 @@
 }
 
 @media (max-width: 600px) {
-.header .profile-avatar {
-  width: 3.5rem;
-  height: 3.5rem;
-}
+  .header .profile-avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 }
 
 /* .header .profile-avatar:hover {
@@ -129,10 +137,10 @@
 }
 
 @media (max-width: 600px) {
-.header .dropdown-menu {
-  top: 48px;
-  right: -2px;
- }
+  .header .dropdown-menu {
+    top: 48px;
+    right: -2px;
+  }
 }
 
 .header .dropdown-menu::before {
@@ -176,9 +184,9 @@
     opacity: 0;
     transform: translateY(-5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-

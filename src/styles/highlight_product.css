@@ -3,9 +3,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
-    /* max-width: 2300px;
-    justify-content: center; */
-    /* width: 2045px; */
 }
 
 .highlight_product .card {
@@ -70,16 +67,3 @@
     }
 
 }
-
-/* @media (max-width: 1440px) {
-    .highlight_product {
-        width: 1445px;
-    }
-}
-
-@media (max-width: 500px) {
-    .highlight_product {
-        width: 300px;
-
-    }
-} */
