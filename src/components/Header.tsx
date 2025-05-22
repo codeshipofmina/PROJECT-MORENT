@@ -5,7 +5,10 @@ import "../styles/header.css";
 import ProfilImg from "../assets/img/profil.svg";
 import FavouritesImg from "../assets/img/heart.svg";
 import BookingsImg from "../assets/img/save.svg";
-import SignoutImg from "../assets/img/signout.png";
+import { supabase } from "../lib/supabaseClient";
+// import SignoutImg from "../assets/img/signout.png";
+import morentLogo from "../assets/img/Morent_Logo.png"
+
 
 export default function Header() {
   const { signOut, session } = useAuthContext();
@@ -32,9 +35,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="header">
+      <header className="header" id="start">
         <Link to="/">
-          <span className="logo">🚗MØRENT</span>
+          <img className="header-logo" src={morentLogo} alt="Mørent Logo" />
         </Link>
 
         <section className="header-icons">
