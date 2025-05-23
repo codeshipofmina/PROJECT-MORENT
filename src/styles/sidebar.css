@@ -1,51 +1,136 @@
+/* Sidebar Container */
 .sidebar {
+  width: 280px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-right: 1px solid #ddd;
-  height: 100vh;
-  overflow-y: auto;
-  box-sizing: border-box;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
 .sidebar h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
-  border-bottom: 1px solid #ccc;
+  color: #0056b3;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  border-bottom: 2px solid #007bff;
   padding-bottom: 5px;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
-.sidebar label {
+/* Select Element (Cities) */
+.sidebar select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 1em;
+  color: #495057;
+  appearance: none; /* Remove default select arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 4 5%22%3E%3Cpath fill%3D%22%23343a40%22 d%3D%22M2 0L0 2h4zm0 5L0 3h4z%22%2F%3E%3C%2Fsvg%3E"); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 8px 10px;
   cursor: pointer;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sidebar select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Checkbox and Label Styling */
+.sidebar div label {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
   color: #555;
+  transition: color 0.2s ease-in-out;
+}
+
+.sidebar div label:hover {
+  color: #007bff;
 }
 
 .sidebar input[type="checkbox"] {
-  margin-right: 8px;
-  accent-color: #007bff;
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.sidebar input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.sidebar input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 2px;
 }
 
 .sidebar input[type="range"] {
   width: 100%;
-  margin-top: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.sidebar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: grab;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: grab;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar input[type="range"]::-webkit-slider-thumb:active,
+.sidebar input[type="range"]::-moz-range-thumb:active {
+  background: #0056b3;
+  cursor: grabbing;
 }
 
 .sidebar p {
-  font-size: 14px;
-  color: #777;
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
   text-align: center;
-  font-weight: 900;
+  margin-top: 0;
 }
