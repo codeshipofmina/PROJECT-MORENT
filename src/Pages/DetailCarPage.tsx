@@ -81,12 +81,28 @@ const DetailCarPage = () => {
           <p>
             <span>€{carData.priceperday}</span> / day
           </p>
+          {/* CHOSE LOCATION.
+          map through thiscars locations - option for every city.
+          onClick or onSelect => add the location into the button-link-state below}
+          {/* <select name="cities" id="cities">
+
+            {carData.car_locations?.map((location) => {
+              <option value={location.location_id}>
+                {location.locations.city}
+              </option>;
+            })}
+          </select> */}
 
           {/*WIP: add Location Selector here. "available locations or so". give selected location.id into state of the LINK */}
-          <Link to="/booking" state={{ car_id: carData.id }}>
-
-            to the booking{" "}
-          </Link>
+          <button>
+            <Link
+              to="/booking"
+              // insert: location_id: select option value location id 
+              state={{ car_id: carData.id, car_price: carData.priceperday}}
+            >
+              to the booking{" "}
+            </Link>
+          </button>
         </div>
       </div>
 
