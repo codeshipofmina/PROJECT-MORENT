@@ -1,0 +1,26 @@
+button.detail_button {
+    background-color: var(--primarycolor);
+    padding: 0.9rem 1.6em;
+    border-radius: 0.4rem;
+    border: none;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--fontsize-12);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+button.detail_button:hover {
+    transform: scale(1.05);
+}
+
+button.detail_button:disabled {
+    background-color: var(--secondarycolor);
+    cursor: not-allowed;
+}
+button.detail_button:hover {
+    transform: none;
+}

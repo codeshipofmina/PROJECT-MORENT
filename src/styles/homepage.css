@@ -9,6 +9,16 @@ html {
     align-items: center;
 }
 
+.homepage-container .go_to_filter_button {
+    margin: 0 5vw;
+}
+
+@media (max-width: 600px) {
+    .homepage-container .go_to_filter_button {
+        margin: 0 7vw;
+    }
+}
+
 .homepage-container .vehicle_card_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -16,7 +26,6 @@ html {
     padding: 3.2rem 5vw;
     max-width: 2300px;
     justify-content: center;
-
 }
 
 @media (max-width: 1220px) {
@@ -35,4 +44,8 @@ html {
     .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+.homepage-container .load-more-button {
+    margin: 2rem auto 4rem auto;
 }
