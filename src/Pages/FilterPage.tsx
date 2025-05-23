@@ -4,12 +4,18 @@ import { supabase } from "../lib/supabaseClient";
 import VehicleCard from "../components/VehicleCard";
 import { Sidebar } from "../components/SideBar";
 import "../styles/FilterPage.css";
+import RentalLocationForm from "../components/RentalLocationForm";
 
 const FilterPage = () => {
   const [filters, setFilters] = useState({
     vehicleTypeIds: [] as string[],
     seatCounts: [] as number[],
     maxPrice: 1000,
+  });
+  const [rentalInfo, setRentalInfo] = useState({
+    pickupLocation: "",
+    dropoffLocation: "",
+    pickupDate: "",
   });
 
   const [filteredVehicles, setFilteredVehicles] = useState<any[]>([]);
@@ -32,6 +38,15 @@ const FilterPage = () => {
     queryKey: ["vehicle_types"],
   });
 
+  const { data: carLocations } = useQuery({
+    queryFn: async () => {
+      const result = await supabase.from("car_locations").select("*");
+      if (result.error) throw result.error;
+      return result.data;
+    },
+    queryKey: ["car_locations"],
+  });
+
   useEffect(() => {
     if (!allVehicles) return;
 
@@ -49,27 +64,39 @@ const FilterPage = () => {
 
     filtered = filtered.filter((v) => v.priceperday <= filters.maxPrice);
 
+    if (rentalInfo.pickupLocation && carLocations) {
+      const matchingCarIds = carLocations
+        .filter((cl) => cl.location_id === rentalInfo.pickupLocation)
+        .map((cl) => cl.car_id);
+
+      filtered = filtered.filter((v) => matchingCarIds.includes(v.id));
+    }
+
     setFilteredVehicles(filtered);
-  }, [allVehicles, filters]);
+  }, [allVehicles, filters, rentalInfo, carLocations]);
 
   return (
     <div className="page-layout">
       <Sidebar onFilterChange={setFilters} />
 
-      <div className="vehicle_card_container">
-        {filteredVehicles.map((vehicle) => {
-          const vehicleType = vehicleTypes?.find(
-            (type) => type.id === vehicle.vehicle_type_id
-          );
-          return (
-            <section key={vehicle.id}>
-              <VehicleCard
-                vehicle={vehicle}
-                vehicleType={vehicleType || { id: "", name: "Unknown" }}
-              />
-            </section>
-          );
-        })}
+      <div className="vehicle_content">
+        <RentalLocationForm onChange={setRentalInfo} />
+
+        <div className="vehicle_card_container">
+          {filteredVehicles.map((vehicle) => {
+            const vehicleType = vehicleTypes?.find(
+              (type) => type.id === vehicle.vehicle_type_id
+            );
+            return (
+              <section key={vehicle.id}>
+                <VehicleCard
+                  vehicle={vehicle}
+                  vehicleType={vehicleType || { id: "", name: "Unknown" }}
+                />
+              </section>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
