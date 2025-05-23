@@ -1,0 +1,44 @@
+.favorite_cars{
+     padding: 3.2rem 5vw;
+    background-color: var(--reviewcolor);
+    
+}
+
+@media (max-width: 600px) {
+    .favorite_cars {
+        padding: 3.2rem 7vw;
+    }
+}
+
+.favorite_cars h2 {
+    color: var(--textcolor);
+    font-size: var(--fontsize-32);
+    font-weight: 700;
+    margin-bottom: 4.8rem;
+}
+
+.favorite_cars .favourite_cars_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    justify-content: center;
+
+}
+
+@media (max-width: 1070px) {
+    .favorite_cars .favourite_cars_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 810px) {
+    .favorite_cars .favourite_cars_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .favorite_cars .favourite_cars_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

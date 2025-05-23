@@ -168,7 +168,7 @@ export default function Profile() {
     return (
         <article className="profile">
             <form className="profile-form" onSubmit={handleUpdate}>
-                <h2>Mein Profile</h2>
+                <h2>Mein Profil</h2>
                 {loading && <p>Loading...</p>}
                 {!loading && profile.avatar_url && (
                     <div className="avatar-preview">

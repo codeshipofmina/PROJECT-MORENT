@@ -7,8 +7,10 @@
 .vehicle_card img {
     width: 100%;
     max-width: 40rem;
+    height: 20rem;
     align-self: center;
     border-radius: 0.5rem;
+    object-fit: cover;
 }
 
 .vehicle_card_title {
