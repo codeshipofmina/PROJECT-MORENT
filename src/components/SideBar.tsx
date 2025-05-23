@@ -128,7 +128,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         value={maxPrice}
         onChange={(e) => setMaxPrice(Number(e.target.value))}
       />
-      <p>{maxPrice} ₺</p>
+      <p>from {maxPrice} €</p>
     </div>
   );
 };

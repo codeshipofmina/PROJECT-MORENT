@@ -40,9 +40,9 @@ const BookingOverviewPage = () => {
             {bookedCarData.length === 0 && <p>Du hast noch keine Buchungen.</p>}
 
             {bookedCarData.map(({ booking, car }) => (
-                <>
+                <div key={booking.id}>
                     <h4>{new Date(booking.start_date).toLocaleDateString()}</h4>
-                    <section className="booked_cars_container" key={booking.id}>
+                    <section className="booked_cars_container" >
                         <div className="booked_cars_info">
                             <img
                                 src={car.carimg}
@@ -68,11 +68,11 @@ const BookingOverviewPage = () => {
                         <div className="line"></div>
 
                         <div className="booked_cars_map">
-                            <h3>Düsseldorf</h3>
+                            <h3>📍 Düsseldorf</h3>
                             <img src={mapImg} alt="Map" />
                         </div>
                     </section>
-                </>
+                </div>
             ))}
         </article>
     );

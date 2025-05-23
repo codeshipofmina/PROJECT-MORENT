@@ -1,26 +1,74 @@
-.searchbar {
-  border-radius: 2rem;
-  border: solid 1px var(--inputcolor);
-  color: var(--textcolor);
-  height: var(--fontsize-32);
-  width: 30vw;
-  padding: 2rem 3vw;
+.filter_page {
+    display: flex;
+    min-height: 100vh;
 }
 
-.page-layout {
-  display: flex;
-  min-height: 100vh;
+@media (max-width: 600px) {
+    .filter_page {
+    flex-direction: column;
+    padding: 3.2rem 5vw;
+}
 }
 
-.page-layout > .sidebar {
-  width: 250px;
-  background-color: #f0f0f0;
+.filter_page > .sidebar {
+    /* width: 100%; */
+    background-color:var(--backgroundcolor);
 }
 
-.vehicle_card_container {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+@media (max-width: 600px) {
+.filter_page > .sidebar {
+    width: 100%;
+    background-color:white;
+    border-radius: 1rem;
 }
+}
+
+
+.filter_page .vehicle_card_container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 2050px) {
+    .filter_page .vehicle_card_container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1800px) {
+    .filter_page .vehicle_card_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1500px) {
+    .filter_page .vehicle_card_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .filter_page .vehicle_card_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .filter_page .vehicle_card_container {
+        grid-template-columns: repeat(1, 1fr);
+            width: 100%;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .filter_page .vehicle_card_container {
+            padding: 2rem 0;
+
+    }
+}
+
+
