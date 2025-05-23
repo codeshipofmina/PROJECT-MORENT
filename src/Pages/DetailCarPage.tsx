@@ -81,7 +81,10 @@ const DetailCarPage = () => {
           <p>
             <span>€{carData.priceperday}</span> / day
           </p>
+
+          {/*WIP: add Location Selector here. "available locations or so". give selected location.id into state of the LINK */}
           <Link to="/booking" state={{ car_id: carData.id }}>
+
             to the booking{" "}
           </Link>
         </div>
