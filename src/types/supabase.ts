@@ -59,19 +59,19 @@ export type Database = {
       }
       car_locations: {
         Row: {
-          car_id: string | null
+          car_id: string
           id: string
-          location_id: string | null
+          location_id: string
         }
         Insert: {
-          car_id?: string | null
+          car_id: string
           id?: string
-          location_id?: string | null
+          location_id: string
         }
         Update: {
-          car_id?: string | null
+          car_id?: string
           id?: string
-          location_id?: string | null
+          location_id?: string
         }
         Relationships: [
           {
@@ -199,43 +199,40 @@ export type Database = {
       }
       locations: {
         Row: {
-          address: string | null
-          city: string | null
+          city: string
           id: string
         }
         Insert: {
-          address?: string | null
-          city?: string | null
+          city: string
           id?: string
         }
         Update: {
-          address?: string | null
-          city?: string | null
+          city?: string
           id?: string
         }
         Relationships: []
       }
       payments: {
         Row: {
-          booking_id: string | null
+          booking_id: string
           id: string
-          payment_date: string | null
-          payment_method: string | null
-          payment_status: string | null
+          payment_date: string
+          payment_method: string
+          payment_status: string
         }
         Insert: {
-          booking_id?: string | null
+          booking_id: string
           id?: string
-          payment_date?: string | null
-          payment_method?: string | null
-          payment_status?: string | null
+          payment_date: string
+          payment_method: string
+          payment_status: string
         }
         Update: {
-          booking_id?: string | null
+          booking_id?: string
           id?: string
-          payment_date?: string | null
-          payment_method?: string | null
-          payment_status?: string | null
+          payment_date?: string
+          payment_method?: string
+          payment_status?: string
         }
         Relationships: [
           {
@@ -249,28 +246,28 @@ export type Database = {
       }
       reviews: {
         Row: {
-          car_id: string | null
-          comment: string | null
-          created_at: string | null
+          car_id: string
+          comment: string
+          created_at: string
           id: string
-          rating: number | null
-          user_id: string | null
+          rating: number
+          user_id: string
         }
         Insert: {
-          car_id?: string | null
-          comment?: string | null
-          created_at?: string | null
+          car_id: string
+          comment: string
+          created_at?: string
           id?: string
-          rating?: number | null
-          user_id?: string | null
+          rating: number
+          user_id: string
         }
         Update: {
-          car_id?: string | null
-          comment?: string | null
-          created_at?: string | null
+          car_id?: string
+          comment?: string
+          created_at?: string
           id?: string
-          rating?: number | null
-          user_id?: string | null
+          rating?: number
+          user_id?: string
         }
         Relationships: [
           {
@@ -319,15 +316,15 @@ export type Database = {
       vehicle_types: {
         Row: {
           id: string
-          name: string | null
+          name: string
         }
         Insert: {
           id?: string
-          name?: string | null
+          name: string
         }
         Update: {
           id?: string
-          name?: string | null
+          name?: string
         }
         Relationships: []
       }
