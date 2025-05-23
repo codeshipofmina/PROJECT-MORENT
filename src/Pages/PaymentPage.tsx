@@ -139,11 +139,11 @@ const PaymentPage = () => {
                 </article>
                 {/* Platzhalter */}
                 
-                <article className="rental_summary">
-                    <h2>Rental Summary</h2>
-                    <p>Ich bin ein Platzhalter</p>
+                <div className="rental_summary">
+                    {/* <h2>Rental Summary</h2>
+                    <p>Ich bin ein Platzhalter</p> */}
                     <RentalSummary />
-                </article>
+                </div>
             </div>
             <BigButton onClick={() => {}}>Rent now!</BigButton>
 

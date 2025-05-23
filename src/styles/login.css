@@ -8,7 +8,6 @@
     background-color: var(--reviewcolor);
 }
 
-
 .login_page .login-form {
     max-width: 100%;
     background-color: var(--backgroundcolor);
@@ -24,7 +23,6 @@
     font-weight: 600;
     margin-bottom: 3.4rem;
 }
-
 
 .login_page .login-form input {
     padding: 1.1rem;
@@ -57,6 +55,7 @@
     font-size: var(--fontsize-16);
     font-weight: 600;
     width: 100%;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
