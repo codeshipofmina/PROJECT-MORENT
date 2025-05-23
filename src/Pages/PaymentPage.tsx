@@ -10,8 +10,16 @@ import RentalSummary from "../components/RentalSummary";
 import { useLocation } from "react-router";
 
 const PaymentPage = () => {
+   
+
     const navigationState: {car_id?: string, location_id?: string} = useLocation().state ?? {};
-console.log(navigationState);
+
+    const theCar = navigationState.car_id
+    const theLocation = navigationState.location_id
+    console.log(theCar);
+    console.log(theLocation);
+    
+    
 
     return (
         <section className="payment_page">
@@ -46,6 +54,8 @@ console.log(navigationState);
                                     <div className="pick_up">
                                         <h3>Pick – Up</h3>
                                         <div className="pick_up_input">
+                                            {/* Select for cities not needed anymore. only show what was chosen before.
+                                            theLocation */}
                                             <select name="cities" id="cities">
                                                 <option disabled selected>
                                                     Location wählen
@@ -69,6 +79,7 @@ console.log(navigationState);
                                                     Bremen
                                                 </option>
                                             </select>
+                                            {/* if more than one day is chosen - rerender the total price on the rental summary */}
                                             <input type="date" />
                                             <input type="time" />
                                         </div>
@@ -142,7 +153,7 @@ console.log(navigationState);
                     </form>
                 </article>
                 {/* Platzhalter */}
-                
+                {/* fetch from supabase  with theCar  */}
                 <div className="rental_summary">
                     {/* <h2>Rental Summary</h2>
                     <p>Ich bin ein Platzhalter</p> */}
@@ -159,5 +170,30 @@ console.log(navigationState);
 export default PaymentPage;
 
 
+// * Handle Location
+// in LocationPicker die gewählte Stadt vorbelegen. 
+// locationPicker on Payment Page no funktionality. just show chosen Location from DetailPage
+
+
+// * Handle big button
+
+// * Rental summary
 // props für rental summary. Navigation State liefert die car_id. soll in Rental Summary weitergereicht werden
+
 // props für BookingComponente. Navigation State liefert die location_ID. Soll den LocationPicker vorauswählen.
+
+
+
+// * INSERT bookings Table
+// car id, user_id, start date, end date, total price, 
+
+
+
+
+
+
+//! for later or Version 2.0
+// * later INSERT into payment table
+// take new created booking id from table bookings.
+// bookings.id 
+// 
