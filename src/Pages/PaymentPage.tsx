@@ -12,12 +12,15 @@ import { useLocation } from "react-router";
 const PaymentPage = () => {
    
 
-    const navigationState: {car_id?: string, location_id?: string} = useLocation().state ?? {};
+    const navigationState: {car_id?: string, car_price?: number, location_id?: string, } = useLocation().state ?? {};
 
     const theCar = navigationState.car_id
     const theLocation = navigationState.location_id
+    const thePrice = navigationState.car_price
     console.log(theCar);
     console.log(theLocation);
+    console.log(thePrice);
+    
     
     
 
@@ -54,8 +57,8 @@ const PaymentPage = () => {
                                     <div className="pick_up">
                                         <h3>Pick – Up</h3>
                                         <div className="pick_up_input">
-                                            {/* Select for cities not needed anymore. only show what was chosen before.
-                                            theLocation */}
+                                            {/* LocationPicker-Select not needed here. only show what was chosen before.
+                                            theLocation delivered by navigationState useLocation*/}
                                             <select name="cities" id="cities">
                                                 <option disabled selected>
                                                     Location wählen
@@ -79,7 +82,8 @@ const PaymentPage = () => {
                                                     Bremen
                                                 </option>
                                             </select>
-                                            {/* if more than one day is chosen - rerender the total price on the rental summary */}
+                                            {/* if more than one day is chosen - rerender the total price on the rental summary. 
+                                            car PriceperDay is delivered by navigationState useLocation. thePrice. multiply thePrice for RentalSummary Card */}
                                             <input type="date" />
                                             <input type="time" />
                                         </div>
@@ -170,29 +174,23 @@ const PaymentPage = () => {
 export default PaymentPage;
 
 
-// * Handle Location
+// !  Location
 // in LocationPicker die gewählte Stadt vorbelegen. 
 // locationPicker on Payment Page no funktionality. just show chosen Location from DetailPage
 
 
-// * Handle big button
-
-// * Rental summary
-// props für rental summary. Navigation State liefert die car_id. soll in Rental Summary weitergereicht werden
-
-// props für BookingComponente. Navigation State liefert die location_ID. Soll den LocationPicker vorauswählen.
+// ! Rental summary
+// * props für rental summary. 
+// Navigation State liefert die car_id (theCar) und car_price (thePrice) soll in Rental Summary Componente weitergereicht werden
+// if more then one day chosen - thePrice * amount of days - for Rental Summary Componente
 
 
-
+// ! Handle big button
 // * INSERT bookings Table
 // car id, user_id, start date, end date, total price, 
 
 
-
-
-
-
-//! for later or Version 2.0
+// for later or Version 2.0
 // * later INSERT into payment table
 // take new created booking id from table bookings.
 // bookings.id 
