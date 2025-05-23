@@ -65,3 +65,12 @@
     align-items: center;
     padding: 10px 0px 15px 0px;
 }
+
+svg.lucide-heart-icon {
+    stroke: var(--primarycolor);
+}
+
+svg.lucide-heart-icon .lucide-heart-filled {
+    stroke: var(--primarycolor);
+    fill: var(--primarycolor);
+}
