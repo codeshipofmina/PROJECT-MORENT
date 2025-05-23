@@ -1,8 +1,26 @@
 .searchbar {
-    border-radius: 2rem;
-    border: solid 1px var(--inputcolor);
-    color: var(--textcolor);
-    height: var(--fontsize-32);
-    width: 30vw;
-    padding: 2rem 3vw;
-  }
+  border-radius: 2rem;
+  border: solid 1px var(--inputcolor);
+  color: var(--textcolor);
+  height: var(--fontsize-32);
+  width: 30vw;
+  padding: 2rem 3vw;
+}
+
+.page-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.page-layout > .sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+}
+
+.vehicle_card_container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
