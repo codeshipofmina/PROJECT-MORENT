@@ -1,0 +1,196 @@
+.detail_car_page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.car-details {
+    margin-bottom: 2rem;
+}
+
+.car-details img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+
+.detail_car_card {
+    background-color: white;
+    padding: 20px;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.detail_car_card img {
+    width: 100%;
+    max-width: 40rem;
+    align-self: center;
+    border-radius: 0.5rem;
+}
+
+.detail_car_card_title {
+    padding: 10px 0px;
+}
+
+.detail_car_card h3 {
+    font-size: var(--fontsize-16);
+    font-weight: 700;
+    color: var(--textcolor);
+}
+
+.detail_car_card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail_car_card p {
+    font-size: var(--fontsize-14);
+    color: var(--textcolor);
+}
+
+.detail_car_card span {
+    font-weight: 700;
+}
+
+.detail_car_card_info {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 15px 0px;
+}
+
+.detail_car_card_pricebooking {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px 15px 0px;
+}
+
+/* & Reviews */
+.reviews_container {
+    margin-bottom: 2rem;
+}
+
+.reviews_container .review {
+    border: 1px solid #ccc;
+    font-size: var(--fontsize-14);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.nearby_cars_container .vehicle_card_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* * SKELETON */
+.loading-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the logo horizontally */
+    justify-content: center;
+    /* Center the logo vertically */
+    min-height: 300px;
+    /* Add enough space for the skeleton loader */
+    padding: 16px;
+    gap: 16px;
+    width: 100%;
+    /* Ensure the container spans the full width */
+    min-width: 300px;
+    /* Prevent collapsing */
+}
+
+/* .skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    animation: shimmer 3.5s infinite linear;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+} */
+
+/* .skeleton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    background: linear-gradient(45deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 2.5s infinite;
+} */
+
+@keyframes shimmer {
+    0% {
+        background-position: 500% 500%;
+        /* Start far to the bottom-right */
+    }
+
+    100% {
+        background-position: -500% -500%;
+        /* Move to the top-left */
+    }
+}
+
+/* .skeleton-car-details {
+    height: 200px;
+    width: 100%;
+}
+
+.skeleton-reviews {
+    height: 100px;
+    width: 100%;
+}
+
+.skeleton-nearby-cars {
+    height: 150px;
+    width: 100%;
+} */
+
+.skeleton-logo {
+    font-size: 15rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 15rem 10rem;
+    /* Add space below the logo for upcoming data */
+    color: transparent;
+    /* Make the text transparent */
+    background: linear-gradient(to left top,
+            #ff7f59 5%,
+            #ffe7d3 25%,
+            #ff7f59 50%,
+            #ffe7d3 75%,
+            #ff7f59 95%);
+    /* Shimmer gradient */
+    background-size: 1500% 1500%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shimmer 40.5s infinite linear;
+    display: inline-block;
+    position: relative;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .nearby-cars-container .vehicle_card_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .nearby-cars-container .vehicle_card_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
