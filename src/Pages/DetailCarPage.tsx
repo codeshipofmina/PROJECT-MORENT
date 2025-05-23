@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../lib/supabaseClient";
 import VehicleCard from "../components/VehicleCard";
@@ -109,6 +109,7 @@ const DetailCarPage = () => {
           <p>
             <span>€{car.priceperday}</span> / day
           </p>
+          <Link to="/booking" state={{car_id: car.id}}>to the booking </Link>
         </div>
       </div>
 
