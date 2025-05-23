@@ -17,64 +17,64 @@ import UserProfilePage from "./Pages/UserProfilePage";
 const client = new QueryClient();
 
 function App() {
-    const router = createBrowserRouter([
+  const router = createBrowserRouter([
+    {
+      Component: RootLayout,
+      children: [
         {
-            Component: RootLayout,
-            children: [
-                {
-                    path: "/",
-                    Component: HomePage,
-                },
-                {
-                    path: "/filter",
-                    Component: FilterPage,
-                },
-                {
-                    path: "/:id_vehicle",
-                    Component: DetailCarPage,
-                },
-                {
-                    path: "/booking",
-                    Component: PaymentPage,
-                },
-
-                {
-                    path: "/login",
-                    Component: LoginPage,
-                },
-                {
-                    path: "/signup",
-                    Component: SingupPage,
-                },
-
-                {
-                    Component: ProtectedRoute,
-                    children: [
-                        {
-                            path: "/user/bookings",
-                            Component: BookedCarsPage,
-                        },
-                        {
-                            path: "/user/favorites",
-                            Component: FavoriteCarsPage,
-                        },
-                        {
-                            path: "/user/profile",
-                            Component: UserProfilePage,
-                        },
-                    ],
-                },
-            ],
+          path: "/",
+          Component: HomePage,
         },
-    ]);
+        {
+          path: "/filter",
+          Component: FilterPage,
+        },
+        {
+          path: "/:id_vehicle",
+          Component: DetailCarPage,
+        },
+        {
+          path: "/booking",
+          Component: PaymentPage,
+        },
 
-    return (
-        <QueryClientProvider client={client}>
-            <AuthContextProvider>
-                <RouterProvider router={router} />
-            </AuthContextProvider>
-        </QueryClientProvider>
-    );
+        {
+          path: "/login",
+          Component: LoginPage,
+        },
+        {
+          path: "/signup",
+          Component: SingupPage,
+        },
+
+        {
+          Component: ProtectedRoute,
+          children: [
+            {
+              path: "/user/bookings",
+              Component: BookedCarsPage,
+            },
+            {
+              path: "/user/favorites",
+              Component: FavoriteCarsPage,
+            },
+            {
+              path: "/user/profile",
+              Component: UserProfilePage,
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+
+  return (
+    <QueryClientProvider client={client}>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;

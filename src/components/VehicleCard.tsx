@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import RentButton from "./RentButton";
 import "../styles/vehicle_card.css";
 
@@ -60,19 +59,25 @@ export default function VehicleCard({
               </p>
             </div>
           </div>
-          <div className="vehicle_card_pricebooking">
-            <div>
-              <p>
-                <span>€{vehicle.priceperday}</span> / day
-              </p>
-            </div>
-            <div>
-              {" "}
-              <RentButton id_vehicle={vehicle.id} />
-            </div>
+        </div>
+
+        <div className="vehicle_card_pricebooking">
+          <div>
+            <p>
+              <span>€{vehicle.priceperday}</span> / day
+            </p>
+          </div>
+          <div>
+            <RentButton
+              id_vehicle={vehicle.id}
+              onClick={() => console.log(`Renting vehicle: ${vehicle.id}`)} // Example additional logic
+            />
           </div>
         </div>
       </div>
     </div>
   );
+}
+{
+  /* //   <RentButton vehicleId={vehicle.id} /> */
 }
