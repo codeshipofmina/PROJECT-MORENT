@@ -1,5 +1,6 @@
-import RentButton from "./RentButton";
+// import RentButton from "./RentButton";
 import "../styles/vehicle_card.css";
+import DetailButton from "./DetailButton";
 
 interface VehicleCardProps {
   vehicle: {
@@ -68,7 +69,7 @@ export default function VehicleCard({
             </p>
           </div>
           <div>
-            <RentButton
+            <DetailButton
               id_vehicle={vehicle.id}
               onClick={() => console.log(`Renting vehicle: ${vehicle.id}`)} // Example additional logic
             />
