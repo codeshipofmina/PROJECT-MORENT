@@ -23,6 +23,11 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
   const [maxPrice, setMaxPrice] = useState(1000);
   const [priceLimit, setPriceLimit] = useState(1000);
 
+  const [vehicleTypeCounts, setVehicleTypeCounts] = useState<
+    Record<string, number>
+  >({});
+  const [seatCounts, setSeatCounts] = useState<Record<number, number>>({});
+
   useEffect(() => {
     const fetchVehicleTypes = async () => {
       const { data, error } = await supabase.from("vehicle_types").select("*");
@@ -46,6 +51,28 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
       }
     };
     fetchMaxPrice();
+  }, []);
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const { data: cars } = await supabase.from("cars").select("*");
+      if (!cars) return;
+
+      const vtCounts: Record<string, number> = {};
+      cars.forEach((car) => {
+        vtCounts[car.vehicle_type_id] =
+          (vtCounts[car.vehicle_type_id] || 0) + 1;
+      });
+      setVehicleTypeCounts(vtCounts);
+
+      const seatMap: Record<number, number> = {};
+      cars.forEach((car) => {
+        seatMap[car.seats] = (seatMap[car.seats] || 0) + 1;
+      });
+      setSeatCounts(seatMap);
+    };
+
+    fetchCounts();
   }, []);
 
   useEffect(() => {
@@ -80,7 +107,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
                 checked={selectedVehicleTypes.includes(type.id)}
                 onChange={() => handleVehicleTypeChange(type.id)}
               />
-              {type.name}
+              {type.name} ({vehicleTypeCounts[type.id] || 0})
             </label>
           </li>
         ))}
@@ -96,7 +123,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
                 checked={selectedSeatCounts.includes(count)}
                 onChange={() => handleSeatCountChange(count)}
               />
-              {count} Person
+              {count} Person ({seatCounts[count] || 0})
             </label>
           </li>
         ))}
