@@ -7,8 +7,12 @@ import safetyImg from "../assets/img/ic-security-safety.png";
 import "../styles/payment_page.css";
 import BigButton from "../components/BigButton";
 import RentalSummary from "../components/RentalSummary";
+import { useLocation } from "react-router";
 
 const PaymentPage = () => {
+    const navigationState: {car_id?: string, location_id?: string} = useLocation().state ?? {};
+console.log(navigationState);
+
     return (
         <section className="payment_page">
             <div className="back">
@@ -153,3 +157,7 @@ const PaymentPage = () => {
 };
 
 export default PaymentPage;
+
+
+// props für rental summary. Navigation State liefert die car_id. soll in Rental Summary weitergereicht werden
+// props für BookingComponente. Navigation State liefert die location_ID. Soll den LocationPicker vorauswählen.
