@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabaseClient.ts";
 import HighlightProduct from "../components/HighlightProduct.tsx";
 import "../styles/homepage.css";
 import VehicleCard from "../components/VehicleCard.tsx";
+import BigButton from "../components/BigButton.tsx";
 
 const HomePage = () => {
   
@@ -31,6 +32,7 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <HighlightProduct />
+      <BigButton children="Find the Perfect Ride - Tailor Your Rental Search" className="go_to_filter_button" to="/filter"></BigButton>
       <div className="vehicle_card_container">
         {vehicles?.map((vehicle) => {
           const vehicleType = vehicleTypes?.find(

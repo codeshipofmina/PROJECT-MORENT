@@ -9,24 +9,30 @@ html {
     align-items: center;
 }
 
-.vehicle_card_container {
+.homepage-container .vehicle_card_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 2rem;
     padding: 3.2rem 5vw;
     max-width: 2300px;
     justify-content: center;
 
 }
 
-@media (max-width: 900px) {
-    .vehicle_card_container {
+@media (max-width: 1220px) {
+    .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 500px) {
-    .vehicle_card_container {
+@media (max-width: 880px) {
+    .homepage-container .vehicle_card_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
