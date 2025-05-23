@@ -103,13 +103,15 @@ const DetailCarPage = () => {
           <p>Color: {car.color}</p>
           <p>Usage: {car.consumption} L/100km</p>
           <p>
-            Location: {location?.locations?.city},{" "}
-            {location?.locations?.address}
+            Location: {location?.locations},{" "}
+            {location?.address.city ?? "Unknown"}
           </p>
           <p>
             <span>€{car.priceperday}</span> / day
           </p>
-          <Link to="/booking" state={{car_id: car.id}}>to the booking </Link>
+          <Link to="/booking" state={{ car_id: car.id }}>
+            to the booking{" "}
+          </Link>
         </div>
       </div>
 
