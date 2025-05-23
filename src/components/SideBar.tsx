@@ -6,6 +6,7 @@ type FilterState = {
   vehicleTypeIds: string[];
   seatCounts: number[];
   maxPrice: number;
+  pickupLocation: string;
 };
 
 type SidebarProps = {
@@ -16,63 +17,37 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
   const [vehicleTypes, setVehicleTypes] = useState<
     { id: string; name: string | null }[]
   >([]);
+  const [locations, setLocations] = useState<
+    { id: string; city: string | null }[]
+  >([]);
+
   const [selectedVehicleTypes, setSelectedVehicleTypes] = useState<string[]>(
     []
   );
   const [selectedSeatCounts, setSelectedSeatCounts] = useState<number[]>([]);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [priceLimit, setPriceLimit] = useState(1000);
-
-  const [vehicleTypeCounts, setVehicleTypeCounts] = useState<
-    Record<string, number>
-  >({});
-  const [seatCounts, setSeatCounts] = useState<Record<number, number>>({});
+  const [selectedLocation, setSelectedLocation] = useState("");
 
   useEffect(() => {
-    const fetchVehicleTypes = async () => {
-      const { data, error } = await supabase.from("vehicle_types").select("*");
-      if (error) console.error("Araç türleri alınamadı:", error);
-      else setVehicleTypes(data);
-    };
-    fetchVehicleTypes();
-  }, []);
-
-  useEffect(() => {
-    const fetchMaxPrice = async () => {
-      const { data, error } = await supabase
+    const fetchData = async () => {
+      const { data: vt } = await supabase.from("vehicle_types").select("*");
+      const { data: loc } = await supabase.from("locations").select("*");
+      const { data: prices } = await supabase
         .from("cars")
         .select("priceperday")
         .order("priceperday", { ascending: false })
         .limit(1);
 
-      if (data && data[0]) {
-        setPriceLimit(Math.ceil(Number(data[0].priceperday)));
-        setMaxPrice(Math.ceil(Number(data[0].priceperday)));
+      if (vt) setVehicleTypes(vt);
+      if (loc) setLocations(loc);
+      if (prices && prices[0]) {
+        const limit = Math.ceil(prices[0].priceperday);
+        setPriceLimit(limit);
+        setMaxPrice(limit);
       }
     };
-    fetchMaxPrice();
-  }, []);
-
-  useEffect(() => {
-    const fetchCounts = async () => {
-      const { data: cars } = await supabase.from("cars").select("*");
-      if (!cars) return;
-
-      const vtCounts: Record<string, number> = {};
-      cars.forEach((car) => {
-        vtCounts[car.vehicle_type_id] =
-          (vtCounts[car.vehicle_type_id] || 0) + 1;
-      });
-      setVehicleTypeCounts(vtCounts);
-
-      const seatMap: Record<number, number> = {};
-      cars.forEach((car) => {
-        seatMap[car.seats] = (seatMap[car.seats] || 0) + 1;
-      });
-      setSeatCounts(seatMap);
-    };
-
-    fetchCounts();
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -80,8 +55,15 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
       vehicleTypeIds: selectedVehicleTypes,
       seatCounts: selectedSeatCounts,
       maxPrice,
+      pickupLocation: selectedLocation,
     });
-  }, [selectedVehicleTypes, selectedSeatCounts, maxPrice, onFilterChange]);
+  }, [
+    selectedVehicleTypes,
+    selectedSeatCounts,
+    maxPrice,
+    selectedLocation,
+    onFilterChange,
+  ]);
 
   const handleVehicleTypeChange = (id: string) => {
     setSelectedVehicleTypes((prev) =>
@@ -97,39 +79,48 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
 
   return (
     <div className="sidebar">
-      <h3>Vehicle Type</h3>
-      <ul>
-        {vehicleTypes.map((type) => (
-          <li key={type.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedVehicleTypes.includes(type.id)}
-                onChange={() => handleVehicleTypeChange(type.id)}
-              />
-              {type.name} ({vehicleTypeCounts[type.id] || 0})
-            </label>
-          </li>
+      <h3>Cities</h3>
+      <select
+        value={selectedLocation}
+        onChange={(e) => setSelectedLocation(e.target.value)}
+      >
+        <option value="">Select a City</option>
+        {locations.map((loc) => (
+          <option key={loc.id} value={loc.id}>
+            {loc.city}
+          </option>
         ))}
-      </ul>
+      </select>
+
+      <h3>Vehicle Typle</h3>
+      {vehicleTypes.map((type) => (
+        <div key={type.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedVehicleTypes.includes(type.id)}
+              onChange={() => handleVehicleTypeChange(type.id)}
+            />
+            {type.name}
+          </label>
+        </div>
+      ))}
 
       <h3>Capacity</h3>
-      <ul>
-        {[2, 4, 5, 6, 7, 8].map((count) => (
-          <li key={count}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedSeatCounts.includes(count)}
-                onChange={() => handleSeatCountChange(count)}
-              />
-              {count} Person ({seatCounts[count] || 0})
-            </label>
-          </li>
-        ))}
-      </ul>
+      {[2, 4, 5, 6, 7, 8].map((count) => (
+        <div key={count}>
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedSeatCounts.includes(count)}
+              onChange={() => handleSeatCountChange(count)}
+            />
+            {count} Person
+          </label>
+        </div>
+      ))}
 
-      <h3>Price (Max: {priceLimit}€)</h3>
+      <h3>Price</h3>
       <input
         type="range"
         min="0"
@@ -137,7 +128,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         value={maxPrice}
         onChange={(e) => setMaxPrice(Number(e.target.value))}
       />
-      <p>{maxPrice} €</p>
+      <p>{maxPrice} ₺</p>
     </div>
   );
 };

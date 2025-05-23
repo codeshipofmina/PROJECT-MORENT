@@ -4,18 +4,13 @@ import { supabase } from "../lib/supabaseClient";
 import VehicleCard from "../components/VehicleCard";
 import { Sidebar } from "../components/SideBar";
 import "../styles/FilterPage.css";
-import RentalLocationForm from "../components/RentalLocationForm";
 
 const FilterPage = () => {
   const [filters, setFilters] = useState({
     vehicleTypeIds: [] as string[],
     seatCounts: [] as number[],
     maxPrice: 1000,
-  });
-  const [rentalInfo, setRentalInfo] = useState({
     pickupLocation: "",
-    dropoffLocation: "",
-    pickupDate: "",
   });
 
   const [filteredVehicles, setFilteredVehicles] = useState<any[]>([]);
@@ -64,24 +59,22 @@ const FilterPage = () => {
 
     filtered = filtered.filter((v) => v.priceperday <= filters.maxPrice);
 
-    if (rentalInfo.pickupLocation && carLocations) {
+    if (filters.pickupLocation && carLocations) {
       const matchingCarIds = carLocations
-        .filter((cl) => cl.location_id === rentalInfo.pickupLocation)
+        .filter((cl) => cl.location_id === filters.pickupLocation)
         .map((cl) => cl.car_id);
 
       filtered = filtered.filter((v) => matchingCarIds.includes(v.id));
     }
 
     setFilteredVehicles(filtered);
-  }, [allVehicles, filters, rentalInfo, carLocations]);
+  }, [allVehicles, filters, carLocations]);
 
   return (
     <div className="page-layout">
       <Sidebar onFilterChange={setFilters} />
 
       <div className="vehicle_content">
-        <RentalLocationForm onChange={setRentalInfo} />
-
         <div className="vehicle_card_container">
           {filteredVehicles.map((vehicle) => {
             const vehicleType = vehicleTypes?.find(
