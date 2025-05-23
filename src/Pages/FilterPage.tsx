@@ -71,7 +71,7 @@ const FilterPage = () => {
   }, [allVehicles, filters, carLocations]);
 
   return (
-    <div className="page-layout">
+    <article className="filter_page">
       <Sidebar onFilterChange={setFilters} />
 
       <div className="vehicle_content">
@@ -91,7 +91,7 @@ const FilterPage = () => {
           })}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,33 +1,39 @@
 /* Sidebar Container */
 .sidebar {
-  width: 280px;
-  padding: 20px;
-  background-color: #f8f9fa;
+  min-width: 25rem;
+  padding: 2rem;
   border-right: 1px solid #e0e0e0;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: var(--textcolor);
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+  border-right: none;  
+}
 }
 
 .sidebar h3 {
-  color: #0056b3;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  font-size: 1.3em;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
+  color: var(--anothercolor);
+  margin-top:2rem;
+  margin-bottom: 2rem;
+  font-size: var(--fontsize-16);
+  font-weight: 800;
+  border-bottom: 1px solid var(--anothercolor);
+  padding-bottom: .5rem;
 }
 
 /* Select Element (Cities) */
 .sidebar select {
+  padding: 1.1rem;
+    font-size: var(--fontsize-16);
+    border: 1px solid var(--iconcolor);
+    background-color: white;
+    border-radius: 0.8rem;
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ced4da;
-  border-radius: 6px;
-  background-color: #fff;
-  font-size: 1em;
-  color: #495057;
-  appearance: none; /* Remove default select arrow */
+  color: var(--textcolor);
+  /* Remove default select arrow */
+  appearance: none; 
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 4 5%22%3E%3Cpath fill%3D%22%23343a40%22 d%3D%22M2 0L0 2h4zm0 5L0 3h4z%22%2F%3E%3C%2Fsvg%3E"); /* Custom arrow */
@@ -39,7 +45,7 @@
 }
 
 .sidebar select:focus {
-  border-color: #007bff;
+  border-color: var(--anothercolor);
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   outline: none;
 }
@@ -48,23 +54,24 @@
 .sidebar div label {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  color: #555;
+  font-size: var(--fontsize-14);
+  font-weight: 400;
+  color: var(--textcolor);
   transition: color 0.2s ease-in-out;
 }
 
 .sidebar div label:hover {
-  color: #007bff;
+  color: var(--primarycolor);
 }
 
 .sidebar input[type="checkbox"] {
-  margin-right: 10px;
+  margin-right: 1rem;
   width: 18px;
   height: 18px;
-  border: 2px solid #007bff;
-  border-radius: 4px;
+  border: 2px solid var(--primarycolor);
+  border-radius: 6px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -74,8 +81,8 @@
 }
 
 .sidebar input[type="checkbox"]:checked {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: var(--primarycolor);
+  border-color: var(--primarycolor);
 }
 
 .sidebar input[type="checkbox"]:checked::after {
@@ -94,11 +101,11 @@
   -webkit-appearance: none;
   appearance: none;
   height: 8px;
-  background: #ddd;
+  background: var(--secondarycolor);
   border-radius: 5px;
   outline: none;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar input[type="range"]::-webkit-slider-thumb {
@@ -106,7 +113,7 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #007bff;
+  background: var(--anothercolor);
   border-radius: 50%;
   cursor: grab;
   transition: background-color 0.2s ease-in-out;
@@ -115,7 +122,7 @@
 .sidebar input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: #007bff;
+  background: var(--anothercolor);
   border-radius: 50%;
   cursor: grab;
   transition: background-color 0.2s ease-in-out;
@@ -123,14 +130,14 @@
 
 .sidebar input[type="range"]::-webkit-slider-thumb:active,
 .sidebar input[type="range"]::-moz-range-thumb:active {
-  background: #0056b3;
+  background:  var(--anothercolor);
   cursor: grabbing;
 }
 
 .sidebar p {
-  font-size: 16px;
-  font-weight: bold;
-  color: #007bff;
+  font-size: var(--fontsize-14);
+  font-weight: 400;
+  color: var(--textcolor);
   text-align: center;
   margin-top: 0;
 }
