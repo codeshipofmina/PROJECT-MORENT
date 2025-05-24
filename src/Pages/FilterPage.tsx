@@ -11,6 +11,7 @@ const FilterPage = () => {
     seatCounts: [] as number[],
     maxPrice: 1000,
     pickupLocation: "",
+    horstpower: "",
   });
 
   const [filteredVehicles, setFilteredVehicles] = useState<any[]>([]);
@@ -42,6 +43,19 @@ const FilterPage = () => {
     queryKey: ["car_locations"],
   });
 
+  // get horstpower. but distinct
+  const { data: horstpowers } = useQuery({
+    queryFn: async () => {
+      const result = await supabase.from("cars").select("*");
+      
+      if (result.error) throw result.error;
+      return result.data;
+    },
+    queryKey: ["car_horstpower"],
+  });
+  console.log("here: ", horstpowers);
+  
+
   useEffect(() => {
     if (!allVehicles) return;
 
@@ -67,8 +81,16 @@ const FilterPage = () => {
       filtered = filtered.filter((v) => matchingCarIds.includes(v.id));
     }
 
+    if (filters.horstpower) {
+      const matchingCarIds = horstpowers!
+        .filter((hp) => hp.horstpower === filters.horstpower)
+        .map((hp) => hp.id);
+
+      filtered = filtered.filter((hp) => matchingCarIds.includes(hp.id));
+    }
+
     setFilteredVehicles(filtered);
-  }, [allVehicles, filters, carLocations]);
+  }, [allVehicles, filters, carLocations, horstpowers]);
 
   return (
     <article className="filter_page">
