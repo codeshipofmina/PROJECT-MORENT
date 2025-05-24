@@ -89,3 +89,9 @@ svg.lucide-heart-icon .lucide-heart-filled {
     stroke: var(--primarycolor);
     fill: var(--primarycolor);
 }
+
+svg.lucide-gear-icon,
+svg.lucide-fuel-icon,
+svg.lucide-seats-icon {
+    stroke: var(--anothercolor);
+}
