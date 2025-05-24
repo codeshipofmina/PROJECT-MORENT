@@ -3,7 +3,7 @@ import "../styles/detail_button.css";
 
 interface RentButtonProps {
   id_vehicle: string;
-  onClick?: () => void; // Optional onClick handler for additional functionality
+  onClick?: () => void;
 }
 
 const DetailButton = ({ id_vehicle, onClick }: RentButtonProps) => {
@@ -11,7 +11,7 @@ const DetailButton = ({ id_vehicle, onClick }: RentButtonProps) => {
 
   const handleClick = () => {
     if (onClick) {
-      onClick(); // Call the additional onClick handler if provided
+      onClick();
     }
     navigate(`/${id_vehicle}`); // Navigate to the vehicle detail page
   };

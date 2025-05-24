@@ -3,7 +3,11 @@
     padding: 20px;
     max-width: 460px;
     border-radius: 1rem;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
@@ -14,10 +18,20 @@
     align-self: center;
     border-radius: 0.5rem;
     object-fit: cover;
+
 }
 
-.vehicle_card_title {
-    padding: 10px 0px;
+.vehicle_card_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.vehicle_card_header {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .vehicle_card h3 {
@@ -29,6 +43,7 @@
 .vehicle_card_details {
     display: flex;
     flex-direction: column;
+    padding: 0px 10px;
     gap: 1rem;
 }
 
@@ -63,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0px 15px 0px;
+    padding: 10px 10px 15px 10px;
 }
 
 svg.lucide-heart-icon {

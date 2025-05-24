@@ -15,7 +15,6 @@
     margin-bottom: 1rem;
 }
 
-
 .detail_car_card {
     background-color: white;
     padding: 20px;
@@ -74,61 +73,70 @@
     margin-bottom: 2rem;
 }
 
-.reviews_container .review {
-    border: 1px solid #ccc;
-    font-size: var(--fontsize-14);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+.reviews_container h2 {
+    font-size: var(--fontsize-24);
+    font-weight: 700;
+    color: var(--textcolor);
+    margin: 1.5rem 0;
 }
 
-.nearby_cars_container .vehicle_card_container {
+.reviews_container .review {
+    background-color: white;
+    border: 1px solid var(--reviewcolor);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reviews_container .review:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reviews_container .review p {
+    font-size: var(--fontsize-14);
+    color: var(--textcolor);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.reviews_container .review p:last-child {
+    margin-bottom: 0;
+}
+
+.reviews_container .review .rating {
+    font-size: var(--fontsize-16);
+    font-weight: 700;
+    color: var(--primarycolor);
+    margin-bottom: 0.5rem;
+}
+
+.reviews_container .review .comment {
+    font-size: var(--fontsize-14);
+    color: var(--textcolor);
+    line-height: 1.6;
+}
+
+/* .nearby_cars_container .vehicle_card_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-}
+} */
 
 /* * SKELETON */
 .loading-skeleton {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center the logo horizontally */
     justify-content: center;
-    /* Center the logo vertically */
     min-height: 300px;
-    /* Add enough space for the skeleton loader */
     padding: 16px;
     gap: 16px;
     width: 100%;
-    /* Ensure the container spans the full width */
     min-width: 300px;
-    /* Prevent collapsing */
 }
-
-/* .skeleton {
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    animation: shimmer 3.5s infinite linear;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100px;
-} */
-
-/* .skeleton::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 200%;
-    background: linear-gradient(45deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.2) 50%,
-            rgba(255, 255, 255, 0) 100%);
-    animation: shimmer 2.5s infinite;
-} */
 
 @keyframes shimmer {
     0% {
@@ -142,36 +150,18 @@
     }
 }
 
-/* .skeleton-car-details {
-    height: 200px;
-    width: 100%;
-}
-
-.skeleton-reviews {
-    height: 100px;
-    width: 100%;
-}
-
-.skeleton-nearby-cars {
-    height: 150px;
-    width: 100%;
-} */
-
 .skeleton-logo {
     font-size: 15rem;
     font-weight: 700;
     text-align: center;
     margin: 15rem 10rem;
-    /* Add space below the logo for upcoming data */
     color: transparent;
-    /* Make the text transparent */
     background: linear-gradient(to left top,
-            #ff7f59 5%,
+            var(--primarycolor) 5%,
             #ffe7d3 25%,
-            #ff7f59 50%,
+            var(--primarycolor) 50%,
             #ffe7d3 75%,
-            #ff7f59 95%);
-    /* Shimmer gradient */
+            var(--primarycolor) 95%);
     background-size: 1500% 1500%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -180,17 +170,32 @@
     position: relative;
 }
 
-
-
+.stars {
+    font-size: var(--fontsize-16);
+    color: var(--primarycolor);
+    display: inline-block;
+    line-height: 1;
+}
 
 @media (max-width: 768px) {
     .nearby-cars-container .vehicle_card_container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .skeleton-logo {
+        font-size: 10rem;
+        margin: 10rem 5rem;
+    }
+
 }
 
 @media (max-width: 500px) {
     .nearby-cars-container .vehicle_card_container {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .skeleton-logo {
+        font-size: 8rem;
+        margin: 10rem 2rem;
     }
 }
