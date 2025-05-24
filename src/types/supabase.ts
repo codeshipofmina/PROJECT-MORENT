@@ -94,6 +94,7 @@ export type Database = {
         Row: {
           availability: boolean
           brand: string
+          car_map: string | null
           carimg: string
           color: string
           consumption: number
@@ -115,6 +116,7 @@ export type Database = {
         Insert: {
           availability: boolean
           brand: string
+          car_map?: string | null
           carimg: string
           color: string
           consumption: number
@@ -136,6 +138,7 @@ export type Database = {
         Update: {
           availability?: boolean
           brand?: string
+          car_map?: string | null
           carimg?: string
           color?: string
           consumption?: number
