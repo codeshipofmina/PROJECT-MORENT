@@ -7,6 +7,7 @@ type FilterState = {
   seatCounts: number[];
   maxPrice: number;
   pickupLocation: string;
+  horstpower: string;
 };
 
 type SidebarProps = {
@@ -28,6 +29,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
   const [maxPrice, setMaxPrice] = useState(1000);
   const [priceLimit, setPriceLimit] = useState(1000);
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedHorstPower, setSelectedHorstPower] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,12 +58,14 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
       seatCounts: selectedSeatCounts,
       maxPrice,
       pickupLocation: selectedLocation,
+      horstpower: selectedHorstPower,
     });
   }, [
     selectedVehicleTypes,
     selectedSeatCounts,
     maxPrice,
     selectedLocation,
+    selectedHorstPower,
     onFilterChange,
   ]);
 
@@ -92,7 +96,7 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         ))}
       </select>
 
-      <h3>Vehicle Typle</h3>
+      <h3>Vehicle Type</h3>
       {vehicleTypes.map((type) => (
         <div key={type.id}>
           <label>
@@ -105,6 +109,8 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
           </label>
         </div>
       ))}
+
+      
 
       <h3>Capacity</h3>
       {[2, 4, 5, 6, 7, 8].map((count) => (
@@ -129,6 +135,19 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         onChange={(e) => setMaxPrice(Number(e.target.value))}
       />
       <p>from {maxPrice} €</p>
+      
+      <h3>HorstPower</h3>
+      <select
+        value={selectedHorstPower}
+        onChange={(e) => setSelectedHorstPower(e.target.value)}
+      >
+        <option>Select HorstPower</option>
+        {["Low", "Medium", "High", "Very High", "Ultimate"].map(
+          (horstpower) => (
+            <option value={horstpower}>{horstpower}</option>
+          )
+        )}
+      </select>
     </div>
   );
 };
