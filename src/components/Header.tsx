@@ -1,5 +1,5 @@
 import { useAuthContext } from "../contexts/auth-context";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import "../styles/header.css";
 // import ProfilImg from "../assets/img/profil.svg";
@@ -14,6 +14,8 @@ export default function Header() {
     const { signOut, session } = useAuthContext();
     const [avatarUrl, setAvatarUrl] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const navigate = useNavigate();
 
     // To get avatar_url
     useEffect(() => {
@@ -31,6 +33,12 @@ export default function Header() {
         };
         fetchAvatar();
     }, [session]);
+
+    const handleLogout=()=>{
+        signOut();
+        setMenuOpen(false)
+        navigate("/");
+    };
 
     return (
         <>
@@ -131,9 +139,9 @@ export default function Header() {
                                         to="/user/profile"
                                         onClick={() => setMenuOpen(false)}
                                     >
-                                        Mein Profil
+                                        My Profile
                                     </Link>
-                                    <button onClick={signOut}>Sign out</button>
+                                    <button onClick={handleLogout}>Logout</button>
                                 </div>
                             )}
                         </div>
