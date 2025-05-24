@@ -20,11 +20,13 @@ interface VehicleCardProps {
     id: string;
     name: string | null;
   };
+  bookNowButton?: React.ReactNode;
 }
 
 export default function VehicleCard({
   vehicle,
   vehicleType,
+  bookNowButton,
 }: VehicleCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -60,11 +62,13 @@ export default function VehicleCard({
   return (
     <div>
       <div className="vehicle_card">
-        <div className="vehicle_card_title">
-          <h3>
-            {vehicle.brand} {vehicle.model}
-          </h3>
-          <p>{vehicleType.name ?? "Unknown"}</p>
+        <div className="vehicle_card_header">
+          <div className="vehicle_card_title">
+            <h3>
+              {vehicle.brand} {vehicle.model}
+            </h3>
+            <p>{vehicleType.name ?? "Unknown"}</p>
+          </div>
           <>
             <div onClick={handleFavoriteClick} style={{ cursor: "pointer" }}>
               {isFavorite ? (
@@ -102,7 +106,7 @@ export default function VehicleCard({
           </>
         </div>
         <div>
-          <div>
+          <div className="vehicle_card_image">
             <img
               src={vehicle.carimg ?? ""}
               alt={`${vehicle.brand} ${vehicle.model}`}
@@ -132,16 +136,16 @@ export default function VehicleCard({
             </p>
           </div>
           <div>
-            <DetailButton
-              id_vehicle={vehicle.id}
-              onClick={() => console.log(`Renting vehicle: ${vehicle.id}`)} // Example additional logic
-            />
+            {/* Render the bookNowButton if provided, otherwise render the default DetailButton */}
+            {bookNowButton || (
+              <DetailButton
+                id_vehicle={vehicle.id}
+                onClick={() => console.log(`Renting vehicle: ${vehicle.id}`)}
+              />
+            )}
           </div>
         </div>
       </div>
     </div>
   );
-}
-{
-  /* //   <RentButton vehicleId={vehicle.id} /> */
 }
