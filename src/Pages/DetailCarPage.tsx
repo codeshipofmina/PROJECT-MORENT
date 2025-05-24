@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabaseClient";
 import "../styles/detailcarpage.css";
-import VehicleCard from "../components/VehicleCard";
 import "../styles/booknow_button.css";
-import RentButton from "../components/RentButton";
+// import RentButton from "../components/RentButton";
 import { Link } from "react-router";
+// import VehicleCard from "../components/VehicleCard";
 
 const DetailCarPage = () => {
   const { id_vehicle } = useParams<{ id_vehicle: string }>();
@@ -81,7 +81,7 @@ const DetailCarPage = () => {
         <h1 className="detail_car_card_title">
           {carData.brand} {carData.model}
         </h1>
-{/* opt durchschnittliche bewertung aller reviews */}
+        {/* opt durchschnittliche bewertung aller reviews */}
         <p>{carData.vehicle_types?.name ?? "Unknown"}</p>
         <p>{carData.year}</p>
         <img
@@ -123,8 +123,8 @@ const DetailCarPage = () => {
           <button>
             <Link
               to="/booking"
-              // insert: location_id: select option value location id 
-              state={{ car_id: carData.id, car_price: carData.priceperday}}
+              // insert: location_id: select option value location id
+              state={{ car_id: carData.id, car_price: carData.priceperday }}
             >
               to the booking{" "}
             </Link>
@@ -151,7 +151,6 @@ const DetailCarPage = () => {
 };
 
 export default DetailCarPage;
-
 
 // <VehicleCard
 //             vehicle={{

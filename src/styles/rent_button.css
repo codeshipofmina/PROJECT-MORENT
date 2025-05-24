@@ -11,6 +11,7 @@ button.rent_button {
     font-size: var(--fontsize-12);
     font-weight: 600;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 button.rent_button:hover {
@@ -21,6 +22,7 @@ button.rent_button:disabled {
     background-color: var(--secondarycolor);
     cursor: not-allowed;
 }
+
 button.rent_button:disabled:hover {
     transform: none;
 }
