@@ -28,19 +28,19 @@ html {
     justify-content: center;
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1440px) {
     .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1060px) {
     .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
     .homepage-container .vehicle_card_container {
         grid-template-columns: repeat(1, 1fr);
     }

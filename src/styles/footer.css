@@ -49,6 +49,7 @@
     font-size: var(--fontsize-14);
     margin-bottom: 1.3rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .footer .links h4 {

@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h4>About</h4>
-                    <p>How it works</p>
+                    <p><Link to="/team">How it works</Link></p>
                     <p>Featured</p>
                     <p>Partnership</p>
                     <p>Business Relation</p>

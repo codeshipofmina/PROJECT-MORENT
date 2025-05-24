@@ -43,13 +43,17 @@ export default function Header() {
     return (
         <>
             <header className="header" id="start">
-                <Link to="/"  >
+                <div className="logo-slogan-container">
+                    <Link to="/"  >
                     <img
                         className="header-logo"
                         src={morentLogo}
                         alt="Mørent Logo"
                     />
                 </Link>
+                <h1>Rent. Drive. Pretend it’s yours.</h1>
+                </div>
+                
 
                 <section className="header-icons">
                     {!session ? (
