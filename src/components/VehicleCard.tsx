@@ -116,9 +116,9 @@ export default function VehicleCard({
         <div className="vehicle_card_details">
           <div>
             <div className="vehicle_card_info">
-              <p>{vehicle.fuel}</p>
-              <p>{vehicle.geartype}</p>
-              <p>{vehicle.seats} Seats</p>
+              <p>⛽️ {vehicle.fuel}</p>
+              <p>⚙️ {vehicle.geartype}</p>
+              <p>🧑‍🧑‍🧒 {vehicle.seats} Seats</p>
             </div>
             <div className="vehicle_card_horstpower">
               <p>

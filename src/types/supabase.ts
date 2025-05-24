@@ -214,6 +214,7 @@ export type Database = {
       }
       payments: {
         Row: {
+          billingInfo: Json
           booking_id: string
           id: string
           payment_date: string
@@ -221,6 +222,7 @@ export type Database = {
           payment_status: string
         }
         Insert: {
+          billingInfo: Json
           booking_id: string
           id?: string
           payment_date: string
@@ -228,6 +230,7 @@ export type Database = {
           payment_status: string
         }
         Update: {
+          billingInfo?: Json
           booking_id?: string
           id?: string
           payment_date?: string
