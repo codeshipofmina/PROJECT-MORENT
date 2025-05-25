@@ -31,6 +31,8 @@ const PaymentPage = () => {
   const [city, setCity] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
   const [carDetails, setCarDetails] = useState<any>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -60,9 +62,29 @@ const PaymentPage = () => {
         data: { user },
         error,
       } = await supabase.auth.getUser();
+
       if (user) {
         setUserId(user.id);
         console.log("User ID:", user.id);
+
+        // Pulling user data from the "users" table
+        const { data: userData, error: userDataError } = await supabase
+          .from("users")
+          .select("full_name, phone, adress, city")
+          .eq("id", user.id)
+          .single();
+
+        if (userData) {
+          setName(userData.full_name || "");
+          setPhone(userData.phone || "");
+          setAddress(userData.adress || "");
+          setCity(userData.city || "");
+        } else {
+          console.error(
+            "Failed to retrieve user data:",
+            userDataError?.message
+          );
+        }
       } else {
         console.error("Failed to get user session:", error?.message);
       }
@@ -97,13 +119,28 @@ const PaymentPage = () => {
     fetchUser();
   }, [car_id]);
 
-  const calculateTotalPrice = () => {
-    if (!startDate || !endDate || !car_price) return 0;
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    const diffInMs = end.getTime() - start.getTime();
-    const days = Math.ceil(diffInMs / (1000 * 60 * 60 * 24)) || 1;
-    return days * car_price;
+  const calculateTotalPrice = (): number => {
+    try {
+      if (!startDate || !startTime || !endDate || !endTime || !car_price)
+        return 0;
+
+      const start = new Date(`${startDate}T${startTime}`);
+      const end = new Date(`${endDate}T${endTime}`);
+
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) return 0;
+
+      const diffInMs = end.getTime() - start.getTime();
+
+      if (diffInMs <= 0) return 0;
+
+      const diffInMinutes = diffInMs / (1000 * 60);
+      const pricePerMinute = car_price / (24 * 60);
+
+      return Math.ceil(diffInMinutes * pricePerMinute);
+    } catch (error) {
+      console.error("Fee calculation error:", error);
+      return 0;
+    }
   };
 
   const handleSubmit = async () => {
@@ -233,7 +270,11 @@ const PaymentPage = () => {
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
                       />
-                      <input type="time" />
+                      <input
+                        type="time"
+                        value={startTime}
+                        onChange={(e) => setStartTime(e.target.value)}
+                      />
                     </div>
                   </div>
                   <div className="drop_off">
@@ -255,7 +296,11 @@ const PaymentPage = () => {
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)}
                       />
-                      <input type="time" />
+                      <input
+                        type="time"
+                        value={endTime}
+                        onChange={(e) => setEndTime(e.target.value)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -328,7 +373,7 @@ const PaymentPage = () => {
         </article>
 
         <div className="rental_summary">
-          <RentalSummary car={carDetails} total={calculateTotalPrice()} />
+          <RentalSummary car={carDetails} total={calculateTotalPrice() ?? 0} />
         </div>
       </div>
       <BigButton onClick={handleSubmit}>Rent now!</BigButton>
