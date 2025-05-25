@@ -1,3 +1,93 @@
+# SuperCode AbschlussProject
+Welcome to our final Project👾  MØRENT - a CarRental-Page
+
+insert images
+
+______
+## Funktionsübersicht
+
+1. HomePage
+
+2. FilterPage
+
+3. DetailPage
+
+4. PaymentPage
+
+5. User Favoriten
+
+6. User Bookings
+
+7. ProfilPage
+
+8. TeamPage
+
+
+_______
+## TechStack:
+
+insert collage of logos
+
+Frontend: HTML, CSS, React
+Framework: Vite
+Backend: Supabase
+Database: Supabase
+Version Control: Github
+Deployment: Vercel
+Projectmanagement / TeamOrga:  Miro
+Communication: Discord, Google Meet
+Assigned ProjectDesign: Figma
+Designtools: 
+Libs and Packages: TanStack React-Query, React-Router, FramerMotion
+________
+## Languages:
+HTML, CSS, JS, TS, SQL, 🇩🇪, 🇬🇧
+insert missing logos
+
+________
+## Check out the deployed page
+insert link to deployed page
+
+________
+## Get started
+to run the Project on your local machine
+
+1. clone the repo
+2. npm i
+3. npm run dev
+3. what else?
+
+_____________
+## Database
+insert DB-Entities
+insert some Text about supabase
+____________
+## Authentication
+insert some text about supabase
+
+___________
+## Routing
+insert img of routing miro
+TODO update routing with protected routes
+
+____________
+## Third-party-libraries and tools
+
+-list what we used, and explain what we did with it
+_____________
+## Contributors
+🌳 Oguz
+🌸 Mona
+🍁 Mina
+🍀 Nina
+
+insert roles, github links, 
+
+_____________
+
+_________
+initial Vite-Filling:
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
