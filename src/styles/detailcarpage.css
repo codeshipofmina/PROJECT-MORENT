@@ -116,7 +116,7 @@
     height: 100%;
     object-fit: cover;
     padding: 0;
-    object-position: -110px;
+    object-position: center;
 }
 
 .car_map_wrapper {
@@ -258,6 +258,24 @@
     color: var(--additionalcolor);
     font-size: var(--fontsize-16);
     text-decoration: none;
+}
+
+.average_rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.average_rating h4 {
+    font-size: var(--fontsize-16);
+    font-weight: 600;
+    color: var(--textcolor);
+}
+
+.average_rating .stars {
+    font-size: var(--fontsize-16);
+    color: var(--primarycolor);
 }
 
 @media (max-width: 850px) {

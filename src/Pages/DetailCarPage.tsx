@@ -55,10 +55,22 @@ const DetailCarPage = () => {
     return <div>Car not found</div>;
   }
 
+  // Calculate the average rating
+  const calculateAverageRating = () => {
+    if (!carData.reviews || carData.reviews.length === 0) return 0;
+    const totalRating = carData.reviews.reduce(
+      (sum, review) => sum + review.rating,
+      0
+    );
+    return totalRating / carData.reviews.length;
+  };
+
+  const averageRating = calculateAverageRating();
+
   const renderStars = (rating: number) => {
     const maxStars = 5; // Maximum number of stars
-    const filledStars = "★".repeat(rating); // Filled stars
-    const emptyStars = "☆".repeat(maxStars - rating); // Empty stars
+    const filledStars = "★".repeat(Math.round(rating)); // Filled stars
+    const emptyStars = "☆".repeat(maxStars - Math.round(rating)); // Empty stars
     return (
       <span className="stars">
         {filledStars}
@@ -86,14 +98,17 @@ const DetailCarPage = () => {
             className="detail_car_card img"
             src={carData.carimg ?? ""}
             alt={`${carData.brand} ${carData.model}`}
-          />{" "}
+          />
         </div>
         <div>
-          {" "}
           <h1 className="detail_car_card_title">
             {carData.brand} {carData.model}
           </h1>
-          {/* opt durchschnittliche bewertung aller reviews */}
+          {/* Display the average rating */}
+          <div className="average_rating">
+            <h4>Average Rating:</h4>
+            {renderStars(averageRating)} ({averageRating.toFixed(1)})
+          </div>
           <div className="detail_car_card_details">
             <div className="detail_car_card_details_left">
               <div className="detail_item">
