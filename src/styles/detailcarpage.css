@@ -8,25 +8,30 @@
     margin-bottom: 2rem;
 }
 
-.car-details img {
+/* .car-details img {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
     margin-bottom: 1rem;
-}
+} */
 
 .detail_car_card {
     background-color: white;
     padding: 20px;
-    max-width: 460px;
+    /* max-width: 460px; */
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    gap: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .detail_car_card img {
     width: 100%;
-    max-width: 40rem;
+    max-width: 50rem;
     align-self: center;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
 }
 
 .detail_car_card_title {
@@ -41,24 +46,45 @@
 
 .detail_car_card_details {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 5rem;
 }
 
-.detail_car_card p {
+.detail_car_card_details_left,
+.detail_car_card_details_right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    line-height: 2rem;
+}
+
+.detail_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: end;
     font-size: var(--fontsize-14);
     color: var(--textcolor);
 }
 
-.detail_car_card span {
-    font-weight: 700;
+.detail_item h4 {
+    margin: 0;
+    font-size: var(--fontsize-16);
+    font-weight: 600;
+
+    color: var(--primarycolor);
 }
 
-.detail_car_card_info {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    padding: 15px 0px;
+.detail_item p {
+    margin: 0;
+    font-size: var(--fontsize-14);
+    font-weight: 400;
+    color: var(--textcolor);
+}
+
+.detail_item span {
+    font-weight: 700;
+    color: var(--primarycolor);
 }
 
 .detail_car_card_pricebooking {
@@ -67,6 +93,48 @@
     align-items: center;
     padding: 10px 0px 15px 0px;
 }
+
+.car_map {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.car_map_image {
+    max-width: 100%;
+    height: auto;
+    /* border-radius: 0.5rem; */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car_img_wrapper {
+    height: 350px;
+    padding: 0
+}
+
+.car_img_wrapper img {
+
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    object-position: -110px;
+}
+
+.car_map_wrapper {
+    /* width: 325px;
+    height: 290px; */
+    padding: 0;
+
+
+}
+
+.car_map_wrapper img {
+    object-fit: cover;
+    padding: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
 
 /* & Reviews */
 .reviews_container {
@@ -177,7 +245,22 @@
     line-height: 1;
 }
 
-@media (max-width: 768px) {
+/*  */
+.back {
+    margin-bottom: 4.8rem;
+}
+
+.back img {
+    margin-right: 0.8rem;
+}
+
+.back a {
+    color: var(--additionalcolor);
+    font-size: var(--fontsize-16);
+    text-decoration: none;
+}
+
+@media (max-width: 850px) {
     .nearby-cars-container .vehicle_card_container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -185,6 +268,14 @@
     .skeleton-logo {
         font-size: 10rem;
         margin: 10rem 5rem;
+    }
+
+    .detail_car_card {
+        flex-direction: column;
+    }
+
+    .detail_car_card_details {
+        flex-direction: column;
     }
 
 }
@@ -197,5 +288,13 @@
     .skeleton-logo {
         font-size: 8rem;
         margin: 10rem 2rem;
+    }
+
+    .detail_car_card {
+        flex-direction: column;
+    }
+
+    .detail_car_card_details {
+        flex-direction: column;
     }
 }

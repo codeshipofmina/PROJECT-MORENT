@@ -1,7 +1,7 @@
-.favorite_cars{
-     padding: 3.2rem 5vw;
+.favorite_cars {
+    padding: 3.2rem 5vw;
     /* background-color: var(--reviewcolor); */
-    
+
 }
 
 @media (max-width: 600px) {
@@ -23,6 +23,12 @@
     gap: 2rem;
     justify-content: center;
 
+}
+
+@media (max-width: 1440px) {
+    .favorite_cars .favourite_cars_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 1070px) {

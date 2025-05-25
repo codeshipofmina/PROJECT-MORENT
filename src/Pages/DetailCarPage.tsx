@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabaseClient";
 import "../styles/detailcarpage.css";
 import "../styles/booknow_button.css";
-// import RentButton from "../components/RentButton";
 import { Link } from "react-router";
-// import VehicleCard from "../components/VehicleCard";
+import backImg from "../assets/img/back.png";
+import RentButton from "../components/RentButton";
 
 const DetailCarPage = () => {
   const { id_vehicle } = useParams<{ id_vehicle: string }>();
@@ -76,59 +76,87 @@ const DetailCarPage = () => {
 
   return (
     <div className="detail_car_page">
+      <div className="back">
+        <img src={backImg} alt="Back Icon" />
+        <Link to="/">Back</Link>
+      </div>
       <div className="detail_car_card">
-        {/* img nach links. rechts eine map */}
-        <h1 className="detail_car_card_title">
-          {carData.brand} {carData.model}
-        </h1>
-        {/* opt durchschnittliche bewertung aller reviews */}
-        <p>{carData.vehicle_types?.name ?? "Unknown"}</p>
-        <p>{carData.year}</p>
-        <img
-          className="detail_car_card img"
-          src={carData.carimg ?? ""}
-          alt={`${carData.brand} ${carData.model}`}
-        />
-        <div className="detail_car_card_details">
-          <p>Fuel: {carData.fuel}</p>
-          <p>Gear Type: {carData.geartype}</p>
-          <p>Seats: {carData.seats}</p>
-          <p>Horstpower: {carData.horstpower} 🐎</p>
-          <p>Color: {carData.color}</p>
-          <p>Usage: {carData.consumption} L/100km</p>
-          <p>
-            Locations:{" "}
-            {carData.car_locations
-              ?.map((loc) => loc.locations.city)
-              .join(", ") || "Unknown"}
-          </p>
-          <p>
-            {/* links der location picker */}
-            {/* price nach rechts über rent now button */}
-            <span>€{carData.priceperday}</span> / day
-          </p>
-          {/* CHOSE LOCATION.
-          map through thiscars locations - option for every city.
-          onClick or onSelect => add the location into the button-link-state below}
-          {/* <select name="cities" id="cities">
-
-            {carData.car_locations?.map((location) => {
-              <option value={location.location_id}>
-                {location.locations.city}
-              </option>;
-            })}
-          </select> */}
-
-          {/*WIP: add Location Selector here. "available locations or so". give selected location.id into state of the LINK */}
-          <button>
-            <Link
-              to="/booking"
-              // insert: location_id: select option value location id
-              state={{ car_id: carData.id, car_price: carData.priceperday }}
-            >
-              to the booking{" "}
-            </Link>
-          </button>
+        <div className="car_img_wrapper">
+          <img
+            className="detail_car_card img"
+            src={carData.carimg ?? ""}
+            alt={`${carData.brand} ${carData.model}`}
+          />{" "}
+        </div>
+        <div>
+          {" "}
+          <h1 className="detail_car_card_title">
+            {carData.brand} {carData.model}
+          </h1>
+          {/* opt durchschnittliche bewertung aller reviews */}
+          <div className="detail_car_card_details">
+            <div className="detail_car_card_details_left">
+              <div className="detail_item">
+                <h4>Type:</h4>
+                <p>{carData.vehicle_types?.name ?? "Unknown"}</p>
+              </div>
+              <div className="detail_item">
+                <h4>Year:</h4>
+                <p>{carData.year}</p>
+              </div>
+              <div className="detail_item">
+                <h4>Fuel:</h4>
+                <p>{carData.fuel}</p>
+              </div>
+              <div className="detail_item">
+                <h4>Gear Type:</h4>
+                <p>{carData.geartype}</p>
+              </div>
+              <div className="detail_item">
+                <h4>Seats:</h4>
+                <p>{carData.seats}</p>
+              </div>
+            </div>
+            <div className="detail_car_card_details_right">
+              <div className="detail_item">
+                <h4>Horsepower:</h4>
+                <p>{carData.horstpower} 🐎</p>
+              </div>
+              <div className="detail_item">
+                <h4>Color:</h4>
+                <p>{carData.color}</p>
+              </div>
+              <div className="detail_item">
+                <h4>Usage:</h4>
+                <p>{carData.consumption} L/100km</p>
+              </div>
+              <div className="detail_item">
+                <h4>Locations:</h4>
+                <p>
+                  {carData.car_locations
+                    ?.map((loc) => loc.locations.city)
+                    .join(", ") || "Unknown"}
+                </p>
+              </div>
+              <div className="detail_item">
+                <h4>Price:</h4>
+                <p>
+                  <span>€{carData.priceperday}</span> / day
+                </p>
+              </div>
+              <RentButton
+                id_vehicle={carData.id}
+                car_price={carData.priceperday}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="car_map car_map_wrapper">
+          <img
+            src={carData.car_map ?? ""}
+            alt="Car Map"
+            className="car_map_image"
+          />
         </div>
       </div>
       <div className="reviews_container">
@@ -151,28 +179,3 @@ const DetailCarPage = () => {
 };
 
 export default DetailCarPage;
-
-// <VehicleCard
-//             vehicle={{
-//               id: carData.id,
-//               brand: carData.brand,
-//               model: carData.model,
-//               vehicle_type_id: carData.vehicle_type_id,
-//               carimg: carData.carimg,
-//               fuel: carData.fuel,
-//               geartype: carData.geartype,
-//               seats: carData.seats,
-//               priceperday: carData.priceperday,
-//               horstpower: carData.horstpower,
-//             }}
-//             vehicleType={{
-//               id: carData.vehicle_type_id || "Unknown",
-//               name: carData.vehicle_types?.name || "Unknown",
-//             }}
-//             bookNowButton={
-//               <RentButton
-//                 id_vehicle={carData.id}
-//                 car_price={carData.priceperday}
-//               />
-//             }
-//           />
