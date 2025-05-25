@@ -8,32 +8,32 @@
 }
 
 @media (max-width: 600px) {
-    .sidebar {
-  border-right: none;  
-}
+  .sidebar {
+    border-right: none;
+  }
 }
 
 .sidebar h3 {
   color: var(--anothercolor);
-  margin-top:2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: var(--fontsize-16);
   font-weight: 800;
   border-bottom: 1px solid var(--anothercolor);
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 /* Select Element (Cities) */
 .sidebar select {
   padding: 1.1rem;
-    font-size: var(--fontsize-16);
-    border: 1px solid var(--iconcolor);
-    background-color: white;
-    border-radius: 0.8rem;
+  font-size: var(--fontsize-16);
+  border: 1px solid var(--iconcolor);
+  background-color: white;
+  border-radius: 0.8rem;
   width: 100%;
   color: var(--textcolor);
   /* Remove default select arrow */
-  appearance: none; 
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 4 5%22%3E%3Cpath fill%3D%22%23343a40%22 d%3D%22M2 0L0 2h4zm0 5L0 3h4z%22%2F%3E%3C%2Fsvg%3E"); /* Custom arrow */
@@ -130,7 +130,7 @@
 
 .sidebar input[type="range"]::-webkit-slider-thumb:active,
 .sidebar input[type="range"]::-moz-range-thumb:active {
-  background:  var(--anothercolor);
+  background: var(--anothercolor);
   cursor: grabbing;
 }
 
@@ -140,4 +140,22 @@
   color: var(--textcolor);
   text-align: center;
   margin-top: 0;
+}
+
+.reset-filters {
+  background-color: var(--primarycolor);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.reset-filters:hover {
+  background-color: var(--anothercolor);
 }

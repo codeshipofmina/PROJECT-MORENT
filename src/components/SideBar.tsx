@@ -81,6 +81,14 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
     );
   };
 
+  const resetFilters = () => {
+    setSelectedVehicleTypes([]);
+    setSelectedSeatCounts([]);
+    setMaxPrice(priceLimit);
+    setSelectedLocation("");
+    setSelectedHorstPower("");
+  };
+
   return (
     <div className="sidebar">
       <h3>Cities</h3>
@@ -110,8 +118,6 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         </div>
       ))}
 
-      
-
       <h3>Capacity</h3>
       {[2, 4, 5, 6, 7, 8].map((count) => (
         <div key={count}>
@@ -135,19 +141,25 @@ export const Sidebar = ({ onFilterChange }: SidebarProps) => {
         onChange={(e) => setMaxPrice(Number(e.target.value))}
       />
       <p>from {maxPrice} €</p>
-      
+
       <h3>HorstPower</h3>
       <select
         value={selectedHorstPower}
         onChange={(e) => setSelectedHorstPower(e.target.value)}
       >
-        <option>Select HorstPower</option>
+        <option value="">Select HorstPower</option>
         {["Low", "Medium", "High", "Very High", "Ultimate"].map(
           (horstpower) => (
-            <option value={horstpower}>{horstpower}</option>
+            <option key={horstpower} value={horstpower}>
+              {horstpower}
+            </option>
           )
         )}
       </select>
+
+      <button onClick={resetFilters} className="reset-filters">
+        Reset Filters
+      </button>
     </div>
   );
 };
