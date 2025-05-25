@@ -40,6 +40,8 @@
     color: var(--textcolor);
 }
 
+
+
 .vehicle_card_details {
     display: flex;
     flex-direction: column;
@@ -64,8 +66,12 @@
 .vehicle_card_info {
     display: flex;
     justify-content: space-between;
-    gap: 0.5rem;
     padding: 15px 0px;
+}
+
+.vehicle_card_icon_container {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .vehicle_card_horstpower {
