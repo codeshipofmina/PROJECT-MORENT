@@ -33,31 +33,46 @@ export default function Login() {
     }
   };
 
+  const handleTestLogin = async () => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: "a@admin.com",
+      password: "123456",
+    });
+
+    if (error) {
+      setError("Test login failed: " + error.message);
+    } else {
+      setError("");
+      alert("Test login successful!");
+      navigate("/");
+    }
+  };
+
   return (
     <article className="login_page">
       <form className="login-form" onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        type="email"
-        name="email"
-        placeholder="E-mail"
-        required
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        onChange={handleChange}
-      />
-      <button  type="submit">Login</button>
-      <p>
-        Don't have an account? <br /><Link to="/signup">Sign up</Link>
-      </p>
-      {error && <p className="error">{error}</p>}
-    </form>
+        <h2>Login</h2>
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          required
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          onChange={handleChange}
+        />
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account? <br />
+          <Link to="/signup">Sign up</Link>
+        </p>
+        {error && <p className="error">{error}</p>}
+      </form>
     </article>
-    
   );
 }
