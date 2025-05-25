@@ -1,0 +1,33 @@
+.test-user-box {
+  background-color: var(--backgroundcolor);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.test-user-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.test-user-info {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.credentials {
+  margin-top: 1.5rem;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.credentials span {
+  font-family: monospace;
+  font-weight: 400;
+  font-size: 14px;
+}
