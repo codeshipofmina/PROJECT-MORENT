@@ -1,8 +1,20 @@
+.team-book #bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* background: linear-gradient(to bottom right, #f8f9ff, #e0f7ff); Optionaler Hintergrundverlauf */
+    pointer-events: none;
+}
+
 .team-book {
     flex: 1;
     padding: 3.2rem 5vw;
     color: var(--textcolor);
 }
+
 
 @media (max-width: 750px) {
     .team-book {
@@ -12,7 +24,25 @@
 
 .team-book h1 {
     font-size: var(--fontsize-32);
-    margin-bottom: 2rem;
+}
+
+.team-book .song{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem
+}
+
+@media (max-width:1050px){
+.team-book .song{
+    flex-direction: column;
+}
+}
+
+.team-book audio{
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+       border-radius: 2rem
 }
 
 .team-book .entries {
@@ -21,17 +51,36 @@
     gap: 2rem;
 }
 
+@media (max-width:1300px) {
+   .team-book .entries {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+}
 
+@media (max-width:840px) {
+   .team-book .entries {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+}
 
 .team-book .entry-info h2 {
     font-size: var(--fontsize-20);
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .team-book .entry-info h5 {
     font-size: var(--fontsize-14);
     font-weight: 800;
     margin-bottom: 0.2rem;
+}
+
+@media (max-width:1300px) {
+.team-book .entry-info h5 {
+    margin-bottom: 0;
+}
 }
 
 .team-book .entry-info p {
@@ -58,6 +107,7 @@
 }
 
 .entry-card {
+    
     border-radius: 2rem;
     padding: 1.5rem;
     width: 100%;
@@ -89,6 +139,15 @@
     margin-bottom: 2.5rem;
 }
 
+@media (max-width:1300px) {
+   .team-book .div-container{
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+}
+
 
 .team-book .entry-card .roles-container{
     display: flex;
@@ -104,5 +163,10 @@ align-items: center;    gap: 0.5rem;
 background-color: var(--backgroundcolor);
     padding: 0.5rem;
     border-radius: 1rem;
+      transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+.team-book .entry-card .roles:hover {
+  transform: scale(1.05);
+  background-color: var(--secondarycolor); 
+}
