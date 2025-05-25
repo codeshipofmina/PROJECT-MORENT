@@ -40,7 +40,11 @@
     color: white;
     line-height: 150%;
     margin-bottom: 2rem;
-    max-width: 70%;
+    max-width: 80%;
+}
+
+.highlight_product .card p span{
+    font-weight: 800;
 }
 
 .highlight_product .card img {
@@ -49,17 +53,24 @@
     align-self: center;
 }
 
+@media (max-width: 760px){
+    .highlight_product{
+       display: grid;
+        grid-template-columns: 1fr; 
+    }
+    
+    .highlight_product .ferrari {
+        display: none;
+    }
+}
+
 
 @media (max-width: 600px) {
     .highlight_product {
         padding: 3.2rem 7vw;
-        display: grid;
-        grid-template-columns: 1fr;
+        
     }
 
-    .highlight_product .lamborghini {
-        display: none;
-    }
 
     .highlight_product .card p {
 

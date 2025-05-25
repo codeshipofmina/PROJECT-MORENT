@@ -13,68 +13,72 @@ import FavoriteCarsPage from "./Pages/FavoriteCarsPage";
 import { AuthContextProvider } from "./contexts/auth-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserProfilePage from "./Pages/UserProfilePage";
+import TeamPage from "./Pages/TeamPage";
 
 const client = new QueryClient();
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      Component: RootLayout,
-      children: [
+    const router = createBrowserRouter([
         {
-          path: "/",
-          Component: HomePage,
-        },
-        {
-          path: "/filter",
-          Component: FilterPage,
-        },
-        {
-          path: "/:id_vehicle",
-          Component: DetailCarPage,
-        },
-        {
-          path: "/booking",
-          Component: PaymentPage,
-        },
+            Component: RootLayout,
+            children: [
+                {
+                    path: "/",
+                    Component: HomePage,
+                },
+                {
+                    path: "/filter",
+                    Component: FilterPage,
+                },
+                {
+                    path: "/:id_vehicle",
+                    Component: DetailCarPage,
+                },
+                {
+                    path: "/booking",
+                    Component: PaymentPage,
+                },
 
-        {
-          path: "/login",
-          Component: LoginPage,
+                {
+                    path: "/login",
+                    Component: LoginPage,
+                },
+                {
+                    path: "/signup",
+                    Component: SingupPage,
+                },
+                {
+                    path: "/team",
+                    Component: TeamPage,
+                },
+                {
+                    Component: ProtectedRoute,
+                    children: [
+                        {
+                            path: "/user/bookings",
+                            Component: BookedCarsPage,
+                        },
+                        {
+                            path: "/user/favorites",
+                            Component: FavoriteCarsPage,
+                        },
+                        {
+                            path: "/user/profile",
+                            Component: UserProfilePage,
+                        },
+                    ],
+                },
+            ],
         },
-        {
-          path: "/signup",
-          Component: SingupPage,
-        },
+    ]);
 
-        {
-          Component: ProtectedRoute,
-          children: [
-            {
-              path: "/user/bookings",
-              Component: BookedCarsPage,
-            },
-            {
-              path: "/user/favorites",
-              Component: FavoriteCarsPage,
-            },
-            {
-              path: "/user/profile",
-              Component: UserProfilePage,
-            },
-          ],
-        },
-      ],
-    },
-  ]);
-
-  return (
-    <QueryClientProvider client={client}>
-      <AuthContextProvider>
-        <RouterProvider router={router} />
-      </AuthContextProvider>
-    </QueryClientProvider>
-  );
+    return (
+        <QueryClientProvider client={client}>
+            <AuthContextProvider>
+                <RouterProvider router={router} />
+            </AuthContextProvider>
+        </QueryClientProvider>
+    );
 }
 
 export default App;
