@@ -1,35 +1,55 @@
 .team-book {
     flex: 1;
-    text-align: center;
-    padding: 2rem;
-    background: var(--additionalcolor);
+    padding: 3.2rem 5vw;
+    color: var(--textcolor);
+}
+
+@media (max-width: 750px) {
+    .team-book {
+        padding: 3.2rem 7vw;
+    }
 }
 
 .team-book h1 {
-    font-size: 2rem;
+    font-size: var(--fontsize-32);
     margin-bottom: 2rem;
 }
 
-.entries {
+.team-book .entries {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
 }
 
-.entry-card {
-    background: #fdf1e6;
-    border-radius: 2rem;
-    padding: 1.5rem;
-    width: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.1s ease;
-    overflow: hidden;
+
+
+.team-book .entry-info h2 {
+    font-size: var(--fontsize-20);
+    margin-bottom: 2rem;
 }
-/* .entry-card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-} */
-.entry-img {
+
+.team-book .entry-info h5 {
+    font-size: var(--fontsize-14);
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+}
+
+.team-book .entry-info p {
+    color: var(--textcolor);
+    font-size: var(--fontsize-14);
+        align-self: center;
+
+}
+
+.team-book .entry-info a {
+    text-decoration: none;
+    display: block;
+    color: var(--textcolor);
+    font-size: var(--fontsize-14);
+        align-self: center;
+}
+
+.team-book .entry-img {
     width: 100%;
     border-radius: 1.5rem;
     margin-bottom: 1rem;
@@ -37,12 +57,52 @@
     height: 240px;
 }
 
-.entry-info h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+.entry-card {
+    border-radius: 2rem;
+    padding: 1.5rem;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease;
+    overflow: hidden;
 }
 
-.entry-info p {
-    margin: 0.3rem 0;
-    font-size: 1rem;
+.team-book .oguz {
+    background-color: rgb(91, 156, 255);
 }
+
+.team-book .mona {
+    background-color: rgb(246, 99, 155);
+}
+
+.team-book .mina {
+    background-color: rgb(246, 122, 85);
+}
+
+.team-book .nina {
+    background-color: rgb(69, 221, 180);
+}
+
+.team-book .div-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+
+.team-book .entry-card .roles-container{
+    display: flex;
+    flex-wrap: wrap;
+align-items: center;    gap: 0.5rem;
+}
+
+.team-book .entry-card .roles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+background-color: var(--backgroundcolor);
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
