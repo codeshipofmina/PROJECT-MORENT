@@ -83,6 +83,7 @@
     object-fit: cover;
     /* border: 2px solid #ccc; */
     cursor: pointer;
+
 }
 
 @keyframes rotate360 {
