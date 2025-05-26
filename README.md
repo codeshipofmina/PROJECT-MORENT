@@ -1,12 +1,14 @@
 # SuperCode AbschlussProject
 Welcome to our final Project👾  MØRENT - a CarRental-Page
 
-insert images
+![all devices](src/assets/img/devices_all3.webp)
 
 ______
 ## Funktionsübersicht
 
-1. HomePage
+INSERT functions per page
+
+1. HomePage 
 
 2. FilterPage
 
@@ -22,11 +24,12 @@ ______
 
 8. TeamPage
 
+![all pages](src/assets/img/mac-book-3.webp)
 
 _______
 ## TechStack:
 
-insert collage of logos
+INSERT collage of logos
 
 Frontend: HTML, CSS, React
 Framework: Vite
@@ -46,16 +49,18 @@ insert missing logos
 
 ________
 ## Check out the deployed page
-insert link to deployed page
+![MØRENT](https://morent-oguz-mona-mina-nina.vercel.app/login)
 
 ________
 ## Get started
 to run the Project on your local machine
 
+INSERT the steps
+
 1. clone the repo
 2. npm i
 3. npm run dev
-3. what else?
+3. what else? eigene datenbank und die connecten?
 
 _____________
 ## Database
