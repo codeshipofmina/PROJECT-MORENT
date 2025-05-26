@@ -8,6 +8,8 @@ type AuthContext = {
   session: Session | null;
   isLoading: boolean;
   signOut: () => void;
+  avatarUrl: string;
+  setAvatarUrl: (url: string) => void;
 };
 
 // ? Warum null, und warum behaupten wir, mit "!" dass das zum Context passt?
@@ -23,6 +25,7 @@ export function AuthContextProvider({
   // hier kommt die Session die wir von Supabase erhalten rein
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState<Session | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState("");
 
   useEffect(() => {
     // * wenn der Context lädt, wollen wir supabase fragen ob wir bereits eingeloggt sind.
@@ -49,6 +52,22 @@ export function AuthContextProvider({
     };
   }, []);
 
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      if (session?.user?.id) {
+        const { data } = await supabase
+          .from("users")
+          .select("avatar_url")
+          .eq("id", session.user.id)
+          .single();
+        if (data?.avatar_url) {
+          setAvatarUrl(data.avatar_url);
+        }
+      }
+    };
+    fetchAvatar();
+  }, [session]);
+
   // * Für mehr Convenience geben wir auch die supabase signout funktion via context weiter.
   // * (Nicht strikt notwendig.)
   const signOut = () => {
@@ -56,7 +75,9 @@ export function AuthContextProvider({
   };
 
   return (
-    <authContext.Provider value={{ signOut, session, isLoading: loading }}>
+    <authContext.Provider
+      value={{ signOut, session, isLoading: loading, avatarUrl, setAvatarUrl }}
+    >
       {children}
     </authContext.Provider>
   );
