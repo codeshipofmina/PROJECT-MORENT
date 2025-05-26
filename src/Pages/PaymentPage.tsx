@@ -5,11 +5,12 @@ import paypalImg from "../assets/img/PayPal.png";
 import bitcoinImg from "../assets/img/Bitcoin.png";
 import safetyImg from "../assets/img/ic-security-safety.png";
 import "../styles/payment_page.css";
-import BigButton from "../components/BigButton";
+// import BigButton from "../components/BigButton";
 import RentalSummary from "../components/RentalSummary";
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
+import ModalBookingFinished from "../components/ModalBookingFinished";
 
 const PaymentPage = () => {
   const navigationState: {
@@ -207,7 +208,7 @@ const PaymentPage = () => {
       return;
     }
 
-    alert("Booking and payment successful!");
+    // alert("Booking and payment successful!");
   };
   return (
     <section className="payment_page">
@@ -379,7 +380,8 @@ const PaymentPage = () => {
           <RentalSummary car={carDetails} total={calculateTotalPrice() ?? 0} />
         </div>
       </div>
-      <BigButton onClick={handleSubmit}>Rent now!</BigButton>
+      {/* <BigButton onClick={handleSubmit}>Rent now!</BigButton> */}
+      <ModalBookingFinished onRentClick={handleSubmit} />
     </section>
   );
 };
