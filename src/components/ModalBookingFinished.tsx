@@ -1,8 +1,8 @@
 import "../styles/modal_booking_finished.css";
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const ModalBookingFinished = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const getRandomColor = () => {
         const colors = [
@@ -17,9 +17,9 @@ const ModalBookingFinished = () => {
     };
 
 
-    const handleConfirm = () => {
-        navigate("/");                      // Weiterleitung
-    };
+    // const handleConfirm = () => {
+    //     navigate("/");                      // Weiterleitung
+    // };
 
     return (
         <div className="modal_booking_finished">
@@ -56,7 +56,7 @@ const ModalBookingFinished = () => {
                             🚗✨
                         </p>
                         {/* handleconfirm kann dann raus. und navigate */}
-                        <Link onClick={handleConfirm} className="close-button">
+                        <Link to="/" className="close-button">
                             Awesøme
                         </Link>
                     </div>
