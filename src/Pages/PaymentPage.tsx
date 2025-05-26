@@ -98,11 +98,13 @@ const PaymentPage = () => {
     };
 
     const fetchLocations = async () => {
-      const { data, error } = await supabase.from("locations").select("*");
+      const { data, error } = await supabase.from("car_locations").select("*, locations(id, city)").eq("car_id", car_id);
       if (error) {
         console.error("Cities could not be taken:", error.message);
       } else {
-        setLocations(data);
+        setLocations(data.map((loc) => (loc.locations)));
+        console.log(data);
+        
       }
     };
 
