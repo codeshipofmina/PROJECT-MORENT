@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import backImg from "../assets/img/back.png";
-import visaImg from "../assets/img/visa.png";
+import visaImg from "../assets/img/Visa.png";
 import paypalImg from "../assets/img/PayPal.png";
 import bitcoinImg from "../assets/img/Bitcoin.png";
 import safetyImg from "../assets/img/ic-security-safety.png";
