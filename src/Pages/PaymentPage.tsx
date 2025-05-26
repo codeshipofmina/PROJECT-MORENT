@@ -7,10 +7,11 @@ import safetyImg from "../assets/img/ic-security-safety.png";
 import "../styles/payment_page.css";
 // import BigButton from "../components/BigButton";
 import RentalSummary from "../components/RentalSummary";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import ModalBookingFinished from "../components/ModalBookingFinished";
+import { nav } from "framer-motion/client";
 
 
 const PaymentPage = () => {
@@ -19,6 +20,8 @@ const PaymentPage = () => {
     car_price?: number;
     location_id?: string;
   } = useLocation().state ?? {};
+
+  const navigate = useNavigate();
 
   const theCar = navigationState.car_id;
   const theLocation = navigationState.location_id;
@@ -80,6 +83,12 @@ const PaymentPage = () => {
           .select("full_name, phone, adress, city")
           .eq("id", user.id)
           .single();
+
+          //* Mona propiert Redirect
+          if(!car_id){
+            navigate("/");
+          }
+
 
         if (userData) {
           setName(userData.full_name || "");
@@ -389,7 +398,7 @@ const PaymentPage = () => {
         </div>
       </div>
       {/* <BigButton onClick={handleSubmit}>Rent now!</BigButton> */}
-      <button onClick={handleSubmit} className="open-button">
+      <button onClick={handleSubmit} className="rent-button">
         Rent nøw!
         
       </button>

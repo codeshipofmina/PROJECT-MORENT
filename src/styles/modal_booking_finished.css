@@ -44,6 +44,8 @@
     color: white;
     font-size: var(--fontsize-16);
     font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 

@@ -186,3 +186,24 @@
     margin-bottom: 3rem;
     align-self: start;
 }
+
+.payment_page .rent-button {
+    background-color: var(--anothercolor);
+    padding: 01rem 2em;
+    border-radius: 0.4rem;
+    border: none;
+    display: inline-block;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--fontsize-16);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.payment_page .rent-button:hover {
+    transform: scale(1.05);
+}

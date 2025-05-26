@@ -20,7 +20,7 @@ const RentButton = ({ id_vehicle, car_price, onClick }: RentButtonProps) => {
 
   return (
     <button className="rent_button" onClick={handleClick}>
-      Rent Now
+      Rent Nøw
     </button>
   );
 };
