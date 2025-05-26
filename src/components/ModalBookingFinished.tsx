@@ -1,13 +1,7 @@
-import { useState } from "react";
 import "../styles/modal_booking_finished.css";
 import { useNavigate } from "react-router-dom";
 
-type ModalBookingFinishedProps = {
-    onRentClick?: () => void; // ✅ NEU: externe Funktion beim Rent-Button
-};
-
-const ModalBookingFinished = ({ onRentClick }: ModalBookingFinishedProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+const ModalBookingFinished = () => {
     const navigate = useNavigate();
 
     const getRandomColor = () => {
@@ -22,10 +16,6 @@ const ModalBookingFinished = ({ onRentClick }: ModalBookingFinishedProps) => {
         return colors[Math.floor(Math.random() * colors.length)];
     };
 
-    const handleRentClick = () => {
-        if (onRentClick) onRentClick();     // ✅ externe Funktion ausführen
-        setIsOpen(true);                    // ✅ Modal öffnen
-    };
 
     const handleConfirm = () => {
         navigate("/");                      // Weiterleitung
@@ -33,11 +23,8 @@ const ModalBookingFinished = ({ onRentClick }: ModalBookingFinishedProps) => {
 
     return (
         <div className="modal_booking_finished">
-            <button onClick={handleRentClick} className="open-button">
-                Rent nøw!
-            </button>
+         
 
-            {isOpen && (
                 <div className="modal-overlay">
                     <div className="confetti-wrapper">
                         {Array.from({ length: 60 }).map((_, i) => (
@@ -68,12 +55,12 @@ const ModalBookingFinished = ({ onRentClick }: ModalBookingFinishedProps) => {
                             <br />
                             🚗✨
                         </p>
-                        <button onClick={handleConfirm} className="close-button">
+                        {/* handleconfirm kann dann raus. und navigate */}
+                        <Link onClick={handleConfirm} className="close-button">
                             Awesøme
-                        </button>
+                        </Link>
                     </div>
                 </div>
-            )}
         </div>
     );
 };
