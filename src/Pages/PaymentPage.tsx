@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import ModalBookingFinished from "../components/ModalBookingFinished";
 
+
 const PaymentPage = () => {
   const navigationState: {
     car_id?: string;
@@ -40,6 +41,8 @@ const PaymentPage = () => {
   const [locations, setLocations] = useState<{ id: string; city: string }[]>(
     []
   );
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   // const [reviewInfo, setReviewInfo] = useState<{
   //   count: number;
   //   average: number;
@@ -208,8 +211,11 @@ const PaymentPage = () => {
       return;
     }
 
+    setShowSuccessModal(true)
+
     // alert("Booking and payment successful!");
   };
+
   return (
     <section className="payment_page">
       <div className="back">
@@ -381,7 +387,12 @@ const PaymentPage = () => {
         </div>
       </div>
       {/* <BigButton onClick={handleSubmit}>Rent now!</BigButton> */}
-      <ModalBookingFinished onRentClick={handleSubmit} />
+      <button onClick={handleSubmit} className="open-button">
+        Rent nøw!
+        
+      </button>
+      {showSuccessModal && <ModalBookingFinished/> }
+     
     </section>
   );
 };
