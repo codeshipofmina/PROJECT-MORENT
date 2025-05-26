@@ -1,55 +1,52 @@
-# SuperCode AbschlussProject
-Welcome to our final Project👾  MØRENT - a CarRental-Page
+# 🚗 MØRENT – Moderne Car Rental Web App
+
+Willkommen bei **MØRENT**, unserem Abschlussprojekt bei SuperCode. 
 
 ![all devices](src/assets/img/devices_all3.webp)
+
+Diese moderne Autovermietungsplattform ermöglicht es Nutzern, Fahrzeuge bequem online zu suchen, zu filtern und zu buchen.
+
+🔗 **Live-Demo:** [morent-oguz-mona-mina-nina.vercel.app](https://morent-oguz-mona-mina-nina.vercel.app)
+
 
 ______
 ## Funktionsübersicht
 
-INSERT functions per page
-
-1. HomePage 
-
-2. FilterPage
-
-3. DetailPage
-
-4. PaymentPage
-
-5. User Favoriten
-
-6. User Bookings
-
-7. ProfilPage
-
-8. TeamPage
-
 ![all pages](src/assets/img/mac-book-3.webp)
+- 🔍 **Filterfunktionen:** Filtern Sie Fahrzeuge nach Kategorie, Preis, Sitzanzahl, Location und Horstpower.
+- 📄 **Detailansicht:** Erhalten Sie umfassende Informationen und Bewertungen zu jedem Fahrzeug. (wir empfehlen die SuperCode Ape 👾)
+- ❤️ **Favoriten:** Speichern Sie Ihre Lieblingsfahrzeuge für später.
+- 👤 **Profilseite:** Userdaten und Userbild aktualisieren. (audiosensitive bitte nicht 5x das Profilbild klicken 🥳)
+- 🔐 **Benutzerauthentifizierung:** Anmeldung und Registrierung mit Supabase.
+- 📱 **Responsive Design:** Optimiert für alle Bildschirmgrößen.
+- 💁🏽‍♀️ **TeamPage:**  Wir stellen uns vor. 🌳🌸🍁🍀"How it works" im Footer klicken. 
+
+
 
 _______
+
 ## TechStack:
 
 INSERT collage of logos
 
-Frontend: HTML, CSS, React
-Framework: Vite
-Backend: Supabase
-Database: Supabase
-Version Control: Github
-Deployment: Vercel
-Projectmanagement / TeamOrga:  Miro
-Communication: Discord, Google Meet
-Assigned ProjectDesign: Figma
-Designtools: 
-Libs and Packages: TanStack React-Query, React-Router, FramerMotion
+- Frontend: HTML, CSS, Typescript, React
+- Framework: Vite
+- Code Editor: Visual Code Studio
+- Backend: Supabase (Datenbank & Auth)
+- Version Control: Github
+- Deployment: Vercel
+- Projectmanagement / TeamOrga:  Miro
+- Communication: Discord, Google Meet
+- Assigned ProjectDesign: Figma
+- Libs, Packages, Tools: TanStack React-Query, React-Router, FramerMotion, 
 ________
 ## Languages:
+
 HTML, CSS, JS, TS, SQL, 🇩🇪, 🇬🇧
-insert missing logos
 
 ________
 ## Check out the deployed page
-![MØRENT](https://morent-oguz-mona-mina-nina.vercel.app/login)
+[MØRENT](https://morent-oguz-mona-mina-nina.vercel.app)
 
 ________
 ## Get started
@@ -64,7 +61,7 @@ INSERT the steps
 
 _____________
 ## Database
-insert DB-Entities
+![Database Entities](src/assets/img/supabase_entities.png)
 insert some Text about supabase
 ____________
 ## Authentication
