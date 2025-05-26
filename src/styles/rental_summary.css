@@ -1,9 +1,9 @@
-.rental-summary-container{
+.rental-summary-container {
     display: flex;
     flex-direction: column;
 }
 
-.rental-summary-container .rental-summary{
+.rental-summary-container .rental-summary {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -19,36 +19,56 @@
 
 @media (max-width: 750px) {
     .rental-summary-container .rental-summary .rental-summary-img {
-    width: 8rem;
-    height: 8rem;
+        width: 8rem;
+        height: 8rem;
+    }
 }
+
+@media (max-width: 1000px) {
+    .rental-summary-container .rental-summary .rental-summary-img {
+        width: 8rem;
+        height: 8rem;
+    }
 }
 
 .rental-summary-container .rental-summary h2 {
     color: var(--primarycolor);
 }
 
-.rental-summary-container .rental-summary .stars_rancing{
+.rental-summary-container .rental-summary .stars_rancing {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.rental-summary-container .line{
+.rental-summary-container .line {
     width: 100%;
     height: 1px;
     background-color: var(--iconcolor);
     margin-bottom: 2rem;
 }
 
-.rental-summary-container .price, .rental-summary-container .tax{
+.rental-summary-container .price .total {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-bestween; */
     margin-bottom: 2rem;
 }
 
-.rental-summary-container .price p, .rental-summary-container .tax p{
+.rental-summary-container .price p {
     color: var(--textcolor);
     font-size: var(--fontsize-16);
     font-weight: 400;
+}
+
+.rental-summary-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: end;
+}
+
+.total p {
+    color: var(--primarycolor);
+    font-size: var(--fontsize-16);
+    font-weight: 600;
 }
