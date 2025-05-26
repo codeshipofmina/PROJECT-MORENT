@@ -76,7 +76,7 @@ export default function Register() {
       return;
     }
 
-    alert("Registration successful!");
+    alert("Registration successful! Please check your email for verification.");
   };
 
   return (
