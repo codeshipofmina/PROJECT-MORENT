@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import VehicleCard from "../components/VehicleCard";
 import { Sidebar } from "../components/SideBar";
-import "../styles/FilterPage.css";
+import "../styles/filterpage.css";
 
 const FilterPage = () => {
   const [filters, setFilters] = useState({
@@ -47,14 +47,13 @@ const FilterPage = () => {
   const { data: horstpowers } = useQuery({
     queryFn: async () => {
       const result = await supabase.from("cars").select("*");
-      
+
       if (result.error) throw result.error;
       return result.data;
     },
     queryKey: ["car_horstpower"],
   });
   console.log("here: ", horstpowers);
-  
 
   useEffect(() => {
     if (!allVehicles) return;
