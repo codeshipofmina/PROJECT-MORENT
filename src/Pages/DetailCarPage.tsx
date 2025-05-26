@@ -134,7 +134,7 @@ const DetailCarPage = () => {
             </div>
             <div className="detail_car_card_details_right">
               <div className="detail_item">
-                <h4>Horsepower:</h4>
+                <h4>Horstpower:</h4>
                 <p>{carData.horstpower} 🐎</p>
               </div>
               <div className="detail_item">
