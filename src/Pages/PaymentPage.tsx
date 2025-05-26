@@ -11,7 +11,6 @@ import { useLocation, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import ModalBookingFinished from "../components/ModalBookingFinished";
-import { nav } from "framer-motion/client";
 
 const PaymentPage = () => {
     const navigationState: {
@@ -21,13 +20,6 @@ const PaymentPage = () => {
     } = useLocation().state ?? {};
 
     const navigate = useNavigate();
-
-    const theCar = navigationState.car_id;
-    const theLocation = navigationState.location_id;
-    const thePrice = navigationState.car_price;
-    console.log(theCar);
-    console.log(theLocation);
-    console.log(thePrice);
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -45,16 +37,13 @@ const PaymentPage = () => {
     );
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-    // const [reviewInfo, setReviewInfo] = useState<{
-    //   count: number;
-    //   average: number;
-    // }>({ count: 0, average: 0 });
-
     const { car_id, car_price } = navigationState;
 
     useEffect(() => {
         const fetchCar = async () => {
-            if (!car_id) return;
+            if (!car_id) {
+                navigate("/")
+                 return};
             const { data, error } = await supabase
                 .from("cars")
                 .select("*")
@@ -105,6 +94,7 @@ const PaymentPage = () => {
         };
 
         const fetchLocations = async () => {
+            if (!car_id) return;
             const { data, error } = await supabase
                 .from("car_locations")
                 .select("*, locations(id, city)")
@@ -116,26 +106,10 @@ const PaymentPage = () => {
                 console.log(data);
             }
         };
-
-        // const fetchReviews = async () => {
-        //   if (!car_id) return;
-        //   const { data, error } = await supabase
-        //     .from("reviews")
-        //     .select("rating")
-        //     .eq("car_id", car_id);
-        //   if (!error && data) {
-        //     const count = data.length;
-        //     const average =
-        //       count > 0 ? data.reduce((acc, r) => acc + r.rating, 0) / count : 0;
-        //     setReviewInfo({ count, average });
-        //   }
-        // };
-
-        // fetchReviews();
         fetchLocations();
         fetchCar();
         fetchUser();
-    }, [car_id]);
+    }, [car_id, navigate]);
 
     const calculateTotalPrice = (): number => {
         try {
