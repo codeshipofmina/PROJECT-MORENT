@@ -39,10 +39,10 @@ const PaymentPage = () => {
   const [locations, setLocations] = useState<{ id: string; city: string }[]>(
     []
   );
-  const [reviewInfo, setReviewInfo] = useState<{
-    count: number;
-    average: number;
-  }>({ count: 0, average: 0 });
+  // const [reviewInfo, setReviewInfo] = useState<{
+  //   count: number;
+  //   average: number;
+  // }>({ count: 0, average: 0 });
 
   const { car_id, car_price } = navigationState;
 
@@ -55,6 +55,9 @@ const PaymentPage = () => {
         .eq("id", car_id)
         .single();
       if (data) setCarDetails(data);
+      if (error) {
+        console.error("Car could not be taken:", error.message);
+      }
     };
 
     const fetchUser = async () => {
@@ -99,21 +102,21 @@ const PaymentPage = () => {
       }
     };
 
-    const fetchReviews = async () => {
-      if (!car_id) return;
-      const { data, error } = await supabase
-        .from("reviews")
-        .select("rating")
-        .eq("car_id", car_id);
-      if (!error && data) {
-        const count = data.length;
-        const average =
-          count > 0 ? data.reduce((acc, r) => acc + r.rating, 0) / count : 0;
-        setReviewInfo({ count, average });
-      }
-    };
+    // const fetchReviews = async () => {
+    //   if (!car_id) return;
+    //   const { data, error } = await supabase
+    //     .from("reviews")
+    //     .select("rating")
+    //     .eq("car_id", car_id);
+    //   if (!error && data) {
+    //     const count = data.length;
+    //     const average =
+    //       count > 0 ? data.reduce((acc, r) => acc + r.rating, 0) / count : 0;
+    //     setReviewInfo({ count, average });
+    //   }
+    // };
 
-    fetchReviews();
+    // fetchReviews();
     fetchLocations();
     fetchCar();
     fetchUser();
