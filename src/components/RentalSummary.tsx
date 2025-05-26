@@ -29,24 +29,22 @@ const RentalSummary = ({ car, total }: RentalSummaryProps) => {
         />
         <div className="rental-summary-info">
           <h2>{car ? `${car.brand} ${car.model}` : "Vehicle"}</h2>
-          <div className="stars_rancing">
+          {/* <div className="stars_rancing">
             <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
             <p>{car?.reviewCount} Reviews</p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="line"></div>
-      <div className="price">
-        <p>Price per Day</p>
-        <p>${car?.priceperday ?? "-"}</p>
-      </div>
-      <div className="tax">
-        <p>Tax</p>
-        <p>$0</p>
-      </div>
-      <div className="total">
-        <p>Total</p>
-        <p>${total}</p>
+      <div className="rental-summary-price">
+        <div className="price">
+          <p>Price per Day</p>
+          <p>${car?.priceperday ?? "-"}</p>
+        </div>
+        <div className="total">
+          <p>Total</p>
+          <p>${total}</p>
+        </div>
       </div>
     </section>
   );
