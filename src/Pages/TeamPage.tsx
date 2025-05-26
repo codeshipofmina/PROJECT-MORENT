@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import minaImg from "../assets/img/mina.jpg";
+import ninaImg from "../assets/img/nina.jpg";
+import monaImg from "../assets/img/mona.jpg";
+import oguzImg from "../assets/img/oguz.jpeg";
 import "../styles/team_page.css";
 
 export default function TeamPage() {
@@ -76,8 +80,8 @@ export default function TeamPage() {
                     }}
                 >
                     <img
-                        src="https://fkpscorpio.de/fileadmin/_processed_/3/5/csm_snoop_dogg_news_9d3b016464.jpg"
-                        alt="name"
+                        src={oguzImg}
+                        alt="Oguz"
                         className="entry-img"
                     />
                     <div className="entry-info">
@@ -173,8 +177,8 @@ export default function TeamPage() {
                     }}
                 >
                     <img
-                        src="https://i0.wp.com/dervinylist.com/wp-content/uploads/2018/07/pnk_06-csc3b8lve-sundsbc3b8_gross.jpg?fit=400%2C349&ssl=1"
-                        alt="name"
+                        src={monaImg}
+                        alt="Mona"
                         className="entry-img"
                     />
 
@@ -261,8 +265,8 @@ export default function TeamPage() {
                     }}
                 >
                     <img
-                        src="https://cdn.shopify.com/s/files/1/0397/4879/6567/files/Maud_Stevens_Wagner_1.jpg?v=1652354010"
-                        alt="name"
+                        src={minaImg}
+                        alt="Mina"
                         className="entry-img"
                     />
 
@@ -352,8 +356,8 @@ export default function TeamPage() {
                     }}
                 >
                     <img
-                        src="https://s.wsj.net/public/resources/images/ON-CO892_Cover__B1280_20180625110533.jpg"
-                        alt="name"
+                        src={ninaImg}
+                        alt="Nina"
                         className="entry-img"
                     />
                     <div className="entry-info">
